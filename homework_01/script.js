@@ -4,33 +4,33 @@ const peaches = 90.2345;
 
 // Використовуючи вбудований об'єкт Math – виведіть максимальне число
 
-let maxPrice = Math.max(apple, pears, peaches);
+const maxPrice = Math.max(apple, pears, peaches);
 console.log(`Максимальне число = ${maxPrice}`);
 
 // Використовуючи вбудований об'єкт Math – виведіть мінімальне число
 
-let minPrice = Math.min(apple, pears, peaches);
+const minPrice = Math.min(apple, pears, peaches);
 console.log(`Мінімальне число = ${minPrice}`);
 
 // Складіть вартість всіх товарів, помістіть її в змінну та виведіть цю суму
 
-let sumPrice = apple + pears + peaches;
+const sumPrice = apple + pears + peaches;
 console.log(`Вартість всіх товарів = ${sumPrice}`);
 
 // Відкиньте копійки у всіх товарів, потім – складіть цілу частину вартості кожного товару між собою. Округлення використовувати в МЕНЬШУ сторону.
 
-let sumPriceWithoutCoins =
+const sumPriceWithoutCoins =
   Math.floor(apple) + Math.floor(pears) + Math.floor(peaches);
 console.log(`Сума цілих частин вартості товарів = ${sumPriceWithoutCoins}`);
 
 // Виведіть суму товарів округлену до сотень. (Наприклад якщо вийшло 260, то виведіть 300)
 
-let sumPriceRoundToHundreds = Math.round(sumPrice / 100) * 100;
+const sumPriceRoundToHundreds = Math.round(sumPrice / 100) * 100;
 console.log(`Сума товарів округлена до сотень = ${sumPriceRoundToHundreds}`);
 
 // Виведіть булеве значення: чи є сума всіх товарів (округлена в меншу сторону) парним чи непарним числом?
 
-let isEven = Math.floor(sumPrice) % 2 == 0;
+const isEven = Math.floor(sumPrice) % 2 == 0;
 console.log(
   `Сума всіх товарів (округлена в меншу сторону) є парним числом: ${isEven}`
 );
@@ -38,22 +38,22 @@ console.log(
 // Виведіть суму решти, при оплаті всіх товарів (без округлення), якщо клієнт платить 500 грн.
 
 const cash = 500;
-let remainder = cash - sumPrice;
+const remainder = cash - sumPrice;
 console.log(`Сума решти при сплаті ${cash} складає = ${remainder}`);
 
 // Виведіть середнє значення цін, округлене до другого знаку після коми
 
-let averagePrice = (sumPrice / 3).toFixed(2);
+const averagePrice = +(sumPrice / 3).toFixed(2);
 console.log(`Середнє значення цін = ${averagePrice}`);
 
 // (Більш складне) Створіть змінну, в якої збережіть випадкову знижку (використовуйте функцію Math.random).
 
-let discount = (Math.random() * 100).toFixed();
+const discount = +(Math.random() * 100).toFixed();
 console.log(`Випадкова знижка = ${discount}%`);
 
 // Зробіть клієнту випадкову знижку та виведіть суму до оплати округлену до 2 знаків після коми.
 
-let sumWithDiscount = (sumPrice - (discount * sumPrice) / 100).toFixed(2);
+const sumWithDiscount = +(sumPrice - (discount * sumPrice) / 100).toFixed(2);
 console.log(`Сума з випадковою знижкою = ${sumWithDiscount}`);
 
 // Виведіть чистий прибуток, якщо клієнт заплатив зі знижкою та собівартість товарів рівно в два рази нижче їх ціни?
@@ -61,7 +61,7 @@ console.log(`Сума з випадковою знижкою = ${sumWithDiscount
 
 // В першому прикладі не зрозуміло: спочатку ціна була 260.66 а в розрахунку собівартості 260, хоча в умові задачі чітко вказано: собівартість товарів рівно в два рази нижче їх ціни.
 
-let profit = sumPrice / 2 - sumWithDiscount;
+const profit = sumPrice / 2 - sumWithDiscount;
 console.log(`Чистий прибуток = ${profit}`);
 
 // Advanced
