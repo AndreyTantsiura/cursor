@@ -16,44 +16,42 @@ const pearsPrice = 123.965;
 const peachesPrice = 90.2345;
 
 const maxPrice = Math.max(apllePrice, pearsPrice, peachesPrice);
-console.log(`Максимальне число = ${maxPrice}`);
+console.log("maxPrice", maxPrice);
 
 const minPrice = Math.min(apllePrice, pearsPrice, peachesPrice);
-console.log(`Мінімальне число = ${minPrice}`);
+console.log("minPrice", minPrice);
 
 const productPrice = apllePrice + pearsPrice + peachesPrice;
-console.log(`Вартість всіх товарів = ${productPrice}`);
+console.log("productPrice", productPrice);
 
 const sumPriceWithoutCoins =
   Math.floor(apllePrice) + Math.floor(pearsPrice) + Math.floor(peachesPrice);
-console.log(`Сума цілих частин вартості товарів = ${sumPriceWithoutCoins}`);
+console.log("sumPriceWithoutCoins", sumPriceWithoutCoins);
 
 const sumPriceRoundToHundreds = Math.round(productPrice / 100) * 100;
-console.log(`Сума товарів округлена до сотень = ${sumPriceRoundToHundreds}`);
+console.log("sumPriceRoundToHundreds", sumPriceRoundToHundreds);
 
 const isEven = Math.floor(productPrice) % 2 === 0;
-console.log(
-  `Сума всіх товарів (округлена в меншу сторону) є парним числом: ${isEven}`
-);
+console.log("isEven", isEven);
 
 const cash = 500;
 const remainder = cash - productPrice;
-console.log(`Сума решти при сплаті ${cash} складає = ${remainder}`);
+console.log("remainder", remainder);
 
 const averagePrice = +(productPrice / 3).toFixed(2);
-console.log(`Середнє значення цін = ${averagePrice}`);
+console.log("averagePrice", averagePrice);
 
 const discount = +(Math.random() * 100).toFixed();
-console.log(`Випадкова знижка = ${discount}%`);
+console.log("discount", discount);
 
 const sumWithDiscount = +(
   productPrice -
   (discount * productPrice) / 100
 ).toFixed(2);
-console.log(`Сума з випадковою знижкою = ${sumWithDiscount}`);
+console.log("sumWithDiscount", sumWithDiscount);
 
 const profit = productPrice / 2 - (discount * productPrice) / 100;
-console.log(`Чистий прибуток = ${profit}`);
+console.log("profit", profit);
 
 // Advanced
 
