@@ -50,7 +50,7 @@ const sumWithDiscount = +(
 ).toFixed(2);
 console.log("sumWithDiscount", sumWithDiscount);
 
-const profit = (productPrice / 2 - (discount * productPrice) / 100).toFixed(2);
+const profit = +(productPrice / 2 - (discount * productPrice) / 100).toFixed(2);
 console.log("profit", profit);
 
 // Advanced
