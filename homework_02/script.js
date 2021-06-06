@@ -18,12 +18,12 @@ let sumAllNumber = 0;
 do {
   N = +prompt("Введіть число N", "");
 } while (!Number.isInteger(N) || isNaN(N) || N == "");
-console.log(N);
+console.log("N:", N);
 
 do {
   M = +prompt("Введіть число M", "");
 } while (!Number.isInteger(M) || isNaN(M) || M == "");
-console.log(M);
+console.log("M:", M);
 
 const skipEvenNumber = confirm("Пропускати парні числа?");
 
