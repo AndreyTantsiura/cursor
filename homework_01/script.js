@@ -50,21 +50,19 @@ const sumWithDiscount = +(
 ).toFixed(2);
 console.log("sumWithDiscount", sumWithDiscount);
 
-const profit = productPrice / 2 - (discount * productPrice) / 100;
+const profit = (productPrice / 2 - (discount * productPrice) / 100).toFixed(2);
 console.log("profit", profit);
 
 // Advanced
 
-document.writeln(`
-	1. Максимальне число = ${maxPrice}; <br>
-	2. Мінімальне число = ${minPrice}; <br>
-	3. Вартість всіх товарів = ${productPrice}; <br>
-	4. Сума цілих частин вартості товарів = ${sumPriceWithoutCoins}; <br>
-	5. Сума товарів округлена до сотень = ${sumPriceRoundToHundreds}; <br>
-	6. Сума всіх товарів (округлена в меншу сторону) є парним числом: ${isEven}; <br>
-	7. Сума решти при сплаті ${cash} складає = ${remainder}; <br>
-	8. Середнє значення цін = ${averagePrice}; <br>
-	9. Випадкова знижка = ${discount}%; <br>
-	10. Сума з випадковою знижкою = ${sumWithDiscount}; <br>
-	11. Чистий прибуток = ${profit}.
-`);
+document.writeln(`1. Максимальне число = ${maxPrice}; <br>
+2. Мінімальне число = ${minPrice}; <br>
+3. Вартість всіх товарів = ${productPrice}; <br>
+4. Сума цілих частин вартості товарів = ${sumPriceWithoutCoins}; <br>
+5. Сума товарів округлена до сотень = ${sumPriceRoundToHundreds}; <br>
+6. Сума всіх товарів (округлена в меншу сторону) є парним числом: ${isEven}; <br>
+7. Сума решти при сплаті ${cash} складає = ${remainder}; <br>
+8. Середнє значення цін = ${averagePrice}; <br>
+9. Випадкова знижка = ${discount}%; <br>
+10. Сума з випадковою знижкою = ${sumWithDiscount}; <br>
+11. Чистий прибуток = ${profit}.`);
