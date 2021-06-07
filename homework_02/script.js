@@ -13,8 +13,11 @@
 // Приклад: користувач ввів такі значення для N=10, M=100, ПропускатиПарні=FALSE – сума чисел виведена на екрані буде === 5005
 // Приклад: користувач ввів такі значення для N=1, M=10, ПропускатиПарні=FALSE – сума чисел виведена на екрані буде === 55
 
-let sumNotEvenNumber = 0;
+// variant #1
+
+let N, M;
 let sumAllNumber = 0;
+
 do {
   N = +prompt("Введіть число N", "");
 } while (!Number.isInteger(N) || isNaN(N) || N == "");
@@ -28,12 +31,40 @@ console.log("M:", M);
 const skipEvenNumber = confirm("Пропускати парні числа?");
 
 for (var i = N; i <= M; i++) {
-  if (i % 2 !== 0) {
-    sumNotEvenNumber += i;
+  if (skipEvenNumber && i % 2 === 0) {
+    continue;
+  } else {
+    sumAllNumber += i;
   }
-  sumAllNumber += i;
 }
 
-if (skipEvenNumber) {
-  alert(`Cума чисел = ${sumNotEvenNumber}`);
-} else alert(`Cума чисел = ${sumAllNumber}`);
+alert(sumAllNumber);
+
+// variant#2
+
+// let N, M;
+// let sumNotEvenNumber = 0;
+// let sumAllNumber = 0;
+
+// do {
+//   N = +prompt("Введіть число N", "");
+// } while (!Number.isInteger(N) || isNaN(N) || N == "");
+// console.log("N:", N);
+
+// do {
+//   M = +prompt("Введіть число M", "");
+// } while (!Number.isInteger(M) || isNaN(M) || M == "");
+// console.log("M:", M);
+
+// const skipEvenNumber = confirm("Пропускати парні числа?");
+
+// for (var i = N; i <= M; i++) {
+//   if (i % 2 !== 0) {
+//     sumNotEvenNumber += i;
+//   }
+//   sumAllNumber += i;
+// }
+
+// if (skipEvenNumber) {
+//   alert(`Cума чисел = ${sumNotEvenNumber}`);
+// } else alert(`Cума чисел = ${sumAllNumber}`);
