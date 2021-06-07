@@ -30,7 +30,7 @@ console.log("M:", M);
 
 const skipEvenNumber = confirm("Пропускати парні числа?");
 
-for (var i = N; i <= M; i++) {
+for (let i = N; i <= M; i++) {
   if (skipEvenNumber && i % 2 === 0) {
     continue;
   } else {
@@ -58,7 +58,7 @@ alert(sumAllNumber);
 
 // const skipEvenNumber = confirm("Пропускати парні числа?");
 
-// for (var i = N; i <= M; i++) {
+// for (let i = N; i <= M; i++) {
 //   if (i % 2 !== 0) {
 //     sumNotEvenNumber += i;
 //   }
