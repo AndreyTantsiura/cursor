@@ -1,7 +1,3 @@
-// Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
-// Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
-// Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
-
 // #1 Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 
 function getMaxDigit(number) {
@@ -91,3 +87,58 @@ document.writeln(`Функція №7: ${convertCurrency(100, "UaH")}<br>`);
 
 // #8 Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 // Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
+
+function getRandomPassword(amountSymbol) {
+  if (isNaN(amountSymbol) || amountSymbol === " ") {
+    return "Is not correct";
+  }
+  let password = "";
+  for (let i = 0; i < amountSymbol; i++) {
+    let symbol = Math.floor(Math.random() * 10);
+    password += symbol;
+  }
+  return password.slice(0, 8);
+}
+
+document.writeln(`Функція №8: ${getRandomPassword("3")}<br>`);
+
+// #9 Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
+
+function deleteLetters(letter, word) {
+  let newWord = "";
+  for (let i = 0; i < word.length; i++) {
+    if (letter !== word[i]) {
+      newWord += word[i];
+    }
+  }
+  return newWord;
+}
+
+document.writeln(`Функція №9: ${deleteLetters("a", "blablabla")}<br>`);
+
+// #10 Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
+
+function isPalyndrom(word) {
+  word = word.split(" ").join("");
+  let reversWord = "";
+  for (let i = word.length - 1; i >= 0; i--) {
+    reversWord += word[i];
+  }
+  if (word.toLowerCase() === reversWord.toLowerCase()) return true;
+  else return false;
+}
+
+document.writeln(`Функція №10: ${isPalyndrom("Я несу гусеня")}<br>`);
+
+// #11 Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
+
+function deleteDuplicateLetter(sentence) {
+  sentence = sentence.toLowerCase();
+  newSentence = "";
+  for (let i = 0; i < sentence.length; i++) {}
+  return newSentence;
+}
+
+document.writeln(
+  `Функція №11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}<br>`
+);
