@@ -9,8 +9,6 @@ function getMaxDigit(number) {
   return Math.max(...arrNumber);
 }
 
-document.writeln(`Функція №1: ${getMaxDigit(1236)}<br>`);
-
 // #2 Створити функцію, яка визначає ступінь числа. Не використовуючи Math.pow та **. Використовуйте цикл
 
 function numberInPow(number, pow) {
@@ -21,8 +19,6 @@ function numberInPow(number, pow) {
   return result;
 }
 
-document.writeln(`Функція №2: ${numberInPow(2, 3)}<br>`);
-
 // #3 Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 
 function transformName(name) {
@@ -30,8 +26,6 @@ function transformName(name) {
   name = name.replace(name[0], name[0].toUpperCase());
   return name;
 }
-
-document.writeln(`Функція №3: ${transformName("aNDriY")}<br>`);
 
 // #4 Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
 
@@ -41,8 +35,6 @@ function salaryWithoutTax(salary) {
   return freshCash;
 }
 
-document.writeln(`Функція №4: ${salaryWithoutTax(3000)}<br>`);
-
 // #5 Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
 
 function getRandomNumber(n, m) {
@@ -50,8 +42,6 @@ function getRandomNumber(n, m) {
   max = Math.floor(m);
   return Math.floor(Math.random() * (max - min)) + min;
 }
-
-document.writeln(`Функція №5: ${getRandomNumber(1, 10)}<br>`);
 
 // #6 Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
 
@@ -65,8 +55,6 @@ function countLetter(word, latter) {
   }
   return countLatter;
 }
-
-document.writeln(`Функція №6: ${countLetter("Асталавіста", "а")}<br>`);
 
 // #7 Створіть функцію, яка конвертує долари в гривні та навпаки в залежності від наявності символа $ або UAH в рядку. Приклад: convertCurrency("100$") -> 2500 грн. або convertCurrency("2500UAH") -> 100$
 // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
@@ -83,8 +71,6 @@ function convertCurrency(sum, val) {
   } else return "ERROR";
 }
 
-document.writeln(`Функція №7: ${convertCurrency(100, "UaH")}<br>`);
-
 // #8 Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 // Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
 
@@ -100,8 +86,6 @@ function getRandomPassword(amountSymbol) {
   return password.slice(0, 8);
 }
 
-document.writeln(`Функція №8: ${getRandomPassword("3")}<br>`);
-
 // #9 Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 
 function deleteLetters(letter, word) {
@@ -113,8 +97,6 @@ function deleteLetters(letter, word) {
   }
   return newWord;
 }
-
-document.writeln(`Функція №9: ${deleteLetters("a", "blablabla")}<br>`);
 
 // #10 Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
 
@@ -128,17 +110,29 @@ function isPalyndrom(word) {
   else return false;
 }
 
-document.writeln(`Функція №10: ${isPalyndrom("Я несу гусеня")}<br>`);
-
 // #11 Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
 function deleteDuplicateLetter(sentence) {
   sentence = sentence.toLowerCase();
-  newSentence = "";
-  for (let i = 0; i < sentence.length; i++) {}
+  let newSentence = "";
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence.indexOf(sentence[i]) === sentence.lastIndexOf(sentence[i]))
+      newSentence += sentence[i];
+  }
   return newSentence;
 }
 
-document.writeln(
-  `Функція №11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}<br>`
-);
+function getResaltsAllFunctions() {
+  return `Функція №1: ${getMaxDigit(1236)}<br>
+Функція №2: ${numberInPow(2, 3)}<br>
+Функція №3: ${transformName("aNDriY")}<br>
+Функція №4: ${salaryWithoutTax(3000)}<br>
+Функція №5: ${getRandomNumber(1, 10)}<br>
+Функція №6: ${countLetter("Асталавіста", "а")}<br>
+Функція №7: ${convertCurrency(100, "UaH")}<br>
+Функція №8: ${getRandomPassword("3")}<br>
+Функція №9: ${deleteLetters("a", "blablabla")}<br>
+Функція №10: ${isPalyndrom("Я несу гусеня")}<br>
+Функція №11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}<br>`;
+}
+document.writeln(getResaltsAllFunctions());
