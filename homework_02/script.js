@@ -15,25 +15,24 @@
 
 // variant #1
 
-let N, M;
+let numberN = null,
+  numberM = null;
 let sumAllNumber = 0;
 
 do {
-  N = +prompt("Введіть число N", "");
-} while (!Number.isInteger(N) || isNaN(N) || N == "");
-console.log("N:", N);
+  numberN = +prompt("Введіть число N", "");
+} while (!Number.isInteger(numberN) || isNaN(numberN) || numberN === "");
+console.log("N:", numberN);
 
 do {
-  M = +prompt("Введіть число M", "");
-} while (!Number.isInteger(M) || isNaN(M) || M == "");
-console.log("M:", M);
+  numberM = +prompt("Введіть число M", "");
+} while (!Number.isInteger(numberM) || isNaN(numberM) || numberM === "");
+console.log("M:", numberM);
 
 const skipEvenNumber = confirm("Пропускати парні числа?");
 
-for (let i = N; i <= M; i++) {
-  if (skipEvenNumber && i % 2 === 0) {
-    continue;
-  } else {
+for (let i = numberN; i <= numberM; i++) {
+  if (!skipEvenNumber || i % 2) {
     sumAllNumber += i;
   }
 }
@@ -42,23 +41,24 @@ alert(sumAllNumber);
 
 // variant#2
 
-// let N, M;
+// let numberN = null,
+//   numberM = null;
 // let sumNotEvenNumber = 0;
 // let sumAllNumber = 0;
 
 // do {
-//   N = +prompt("Введіть число N", "");
-// } while (!Number.isInteger(N) || isNaN(N) || N == "");
-// console.log("N:", N);
+//   numberN = +prompt("Введіть число N", "");
+// } while (!Number.isInteger(numberN) || isNaN(numberN) || numberN === "");
+// console.log("N:", numberN);
 
 // do {
-//   M = +prompt("Введіть число M", "");
-// } while (!Number.isInteger(M) || isNaN(M) || M == "");
-// console.log("M:", M);
+//   numberM = +prompt("Введіть число M", "");
+// } while (!Number.isInteger(numberM) || isNaN(numberM) || numberM === "");
+// console.log("M:", numberM);
 
 // const skipEvenNumber = confirm("Пропускати парні числа?");
 
-// for (let i = N; i <= M; i++) {
+// for (let i = numberN; i <= numberM; i++) {
 //   if (i % 2 !== 0) {
 //     sumNotEvenNumber += i;
 //   }
