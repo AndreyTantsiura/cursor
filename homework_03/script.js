@@ -13,10 +13,19 @@ function getMaxDigit(number) {
 
 function numberInPow(number, pow) {
   let result = 1;
-  for (let i = 1; i <= pow; i++) {
-    result *= number;
+  if (!Number.isInteger(pow)) {
+    return "pow is not integer";
+  } else if (pow >= 0) {
+    for (let i = 1; i <= pow; i++) {
+      result *= number;
+    }
+    return result;
+  } else if (pow < 0) {
+    for (let i = 1; i <= -pow; i++) {
+      result *= 1 / number;
+    }
+    return result;
   }
-  return result;
 }
 
 // #3 Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
@@ -74,16 +83,15 @@ function convertCurrency(sum, val) {
 // #8 Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
 // Приклад: getRandomPassword(4) -> 1875, getRandomPassword() -> 87240124
 
-function getRandomPassword(amountSymbol) {
-  if (isNaN(amountSymbol) || amountSymbol === " ") {
+function getRandomPassword(amountSymbol = 8) {
+  if (isNaN(amountSymbol) || amountSymbol <= 0) {
     return "Is not correct";
   }
   let password = "";
-  for (let i = 0; i < amountSymbol; i++) {
-    let symbol = Math.floor(Math.random() * 10);
-    password += symbol;
+  for (let i = 1; i <= amountSymbol; i++) {
+    password += Math.floor(Math.random() * 10);
   }
-  return password.slice(0, 8);
+  return password;
 }
 
 // #9 Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
@@ -124,13 +132,13 @@ function deleteDuplicateLetter(sentence) {
 
 function getResaltsAllFunctions() {
   return `Функція №1: ${getMaxDigit(1236)}<br>
-Функція №2: ${numberInPow(2, 3)}<br>
+Функція №2: ${numberInPow(2, 0.52)}<br>
 Функція №3: ${transformName("aNDriY")}<br>
 Функція №4: ${salaryWithoutTax(3000)}<br>
 Функція №5: ${getRandomNumber(1, 10)}<br>
 Функція №6: ${countLetter("Асталавіста", "а")}<br>
 Функція №7: ${convertCurrency(100, "UaH")}<br>
-Функція №8: ${getRandomPassword("3")}<br>
+Функція №8: ${getRandomPassword(5)}<br>
 Функція №9: ${deleteLetters("a", "blablabla")}<br>
 Функція №10: ${isPalyndrom("Я несу гусеня")}<br>
 Функція №11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}<br>`;
