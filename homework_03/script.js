@@ -2,7 +2,7 @@
 
 function getMaxDigit(number) {
   number = Math.abs(number);
-  let arrDigits = number.toString().split("");
+  let arrDigits = number.toString().split(".").join("");
   let arrNumber = [];
   for (i = 0; i < arrDigits.length; i++) {
     arrNumber.push(+arrDigits[i]);
@@ -135,7 +135,7 @@ function deleteDuplicateLetter(sentence) {
 }
 
 function getResaltsAllFunctions() {
-  return `Функція №1: ${getMaxDigit(1276)}<br>
+  return `Функція №1: ${getMaxDigit(-127.8)}<br>
 Функція №2: ${numberInPow(2, 3)}<br>
 Функція №3: ${transformName("Andrey")}<br>
 Функція №4: ${salaryWithoutTax(3000)}<br>
