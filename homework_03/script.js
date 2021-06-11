@@ -1,6 +1,7 @@
 // #1 Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 
 function getMaxDigit(number) {
+  number = Math.abs(number);
   let arrDigits = number.toString().split("");
   let arrNumber = [];
   for (i = 0; i < arrDigits.length; i++) {
@@ -31,6 +32,9 @@ function numberInPow(number, pow) {
 // #3 Створити функцію, яка форматує ім'я, роблячи першу букву великою. ("влад" -> "Влад", "вЛАД" -> "Влад" і так далі);
 
 function transformName(name) {
+  if (!isNaN(name)) {
+    return "This not a name";
+  }
   name = name.toLowerCase();
   name = name.replace(name[0], name[0].toUpperCase());
   return name;
@@ -58,7 +62,7 @@ function countLetter(word, latter) {
   let lettersWord = word.toLowerCase().split("");
   let countLatter = 0;
   for (i = 0; i < lettersWord.length; i++) {
-    if (lettersWord[i] === latter.toLowerCase()) {
+    if (lettersWord[i].toLowerCase() === latter.toLowerCase()) {
       countLatter++;
     }
   }
@@ -99,7 +103,7 @@ function getRandomPassword(amountSymbol = 8) {
 function deleteLetters(letter, word) {
   let newWord = "";
   for (let i = 0; i < word.length; i++) {
-    if (letter !== word[i]) {
+    if (letter.toLowerCase() !== word[i].toLowerCase()) {
       newWord += word[i];
     }
   }
@@ -131,15 +135,15 @@ function deleteDuplicateLetter(sentence) {
 }
 
 function getResaltsAllFunctions() {
-  return `Функція №1: ${getMaxDigit(1236)}<br>
+  return `Функція №1: ${getMaxDigit(1276)}<br>
 Функція №2: ${numberInPow(2, 3)}<br>
-Функція №3: ${transformName("aNDriY")}<br>
+Функція №3: ${transformName("Andrey")}<br>
 Функція №4: ${salaryWithoutTax(3000)}<br>
 Функція №5: ${getRandomNumber(1, 10)}<br>
 Функція №6: ${countLetter("Асталавіста", "а")}<br>
 Функція №7: ${convertCurrency(100, "UaH")}<br>
-Функція №8: ${getRandomPassword(5)}<br>
-Функція №9: ${deleteLetters("a", "blablabla")}<br>
+Функція №8: ${getRandomPassword()}<br>
+Функція №9: ${deleteLetters("a", "blablAbla")}<br>
 Функція №10: ${isPalyndrom("Я несу гусеня")}<br>
 Функція №11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}<br>`;
 }
