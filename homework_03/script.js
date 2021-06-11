@@ -132,7 +132,7 @@ function deleteDuplicateLetter(sentence) {
 
 function getResaltsAllFunctions() {
   return `Функція №1: ${getMaxDigit(1236)}<br>
-Функція №2: ${numberInPow(2, 0.52)}<br>
+Функція №2: ${numberInPow(2, 3)}<br>
 Функція №3: ${transformName("aNDriY")}<br>
 Функція №4: ${salaryWithoutTax(3000)}<br>
 Функція №5: ${getRandomNumber(1, 10)}<br>
