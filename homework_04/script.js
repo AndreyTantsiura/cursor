@@ -41,7 +41,7 @@ console.log(teamsConcatWithThemes());
 function studentsConcatWithMarks() {
   const studentsMarks = [];
   for (let i = 0; i < students.length; i++) {
-    studentsMarks.push(students[i] + ", " + marks[i]);
+    studentsMarks.push([students[i], marks[i]]);
   }
   return studentsMarks;
 }
@@ -53,27 +53,14 @@ console.log(studentsConcatWithMarks());
 function teamsThemesConcatMarks() {
   const teamsThemesMarks = [];
 
-  const firstRandomMark = marks[Math.floor(Math.random() * marks.length)];
-  const secondRandomMark = marks[Math.floor(Math.random() * marks.length)];
-  const thirdRandomMark = marks[Math.floor(Math.random() * marks.length)];
-
-  const firstTeamsThemesMarks = [].concat(
-    teamsConcatWithThemes()[0],
-    firstRandomMark
-  );
-  const secondTeamsThemesMarks = [].concat(
-    teamsConcatWithThemes()[1],
-    secondRandomMark
-  );
-  const thirdTeamsThemesMarks = [].concat(
-    teamsConcatWithThemes()[2],
-    thirdRandomMark
-  );
-  teamsThemesMarks.push(
-    firstTeamsThemesMarks,
-    secondTeamsThemesMarks,
-    thirdTeamsThemesMarks
-  );
+  for (let i = 0; i < teamsConcatWithThemes().length; i++) {
+    let randomMark = marks[Math.floor(Math.random() * marks.length)];
+    teamsThemesMarks.push([
+      pairIntoTeams()[i].join(" i "),
+      themes[i],
+      randomMark,
+    ]);
+  }
 
   return teamsThemesMarks;
 }
