@@ -38,12 +38,7 @@ function transformName(name) {
   if (!isNaN(name)) {
     return "This not a name";
   }
-  const nameToLowerCase = name.toLowerCase();
-  const resultName = nameToLowerCase.replace(
-    nameToLowerCase[0],
-    nameToLowerCase[0].toUpperCase()
-  );
-  return resultName;
+  return name[0].toUpperCase() + name.slice(1).toLowerCase();
 }
 
 // #4 Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
@@ -117,11 +112,7 @@ function deleteLetters(letter, word) {
 function isPalyndrom(word) {
   const unitedWords = word.toLowerCase().split(" ").join("");
   const reverseUnitedWords = unitedWords.split("").reverse().join("");
-  if (unitedWords === reverseUnitedWords) {
-    return true;
-  } else {
-    return false;
-  }
+  return unitedWords === reverseUnitedWords;
 }
 
 // #11 Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
@@ -133,8 +124,9 @@ function deleteDuplicateLetter(sentence) {
     if (
       sentenceToLowerCase.indexOf(sentenceToLowerCase[i]) ===
       sentenceToLowerCase.lastIndexOf(sentence[i])
-    )
+    ) {
       newSentence += sentenceToLowerCase[i];
+    }
   }
   return newSentence;
 }
