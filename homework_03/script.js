@@ -4,12 +4,15 @@ function getMaxDigit(number) {
   if (!Number.isInteger(number)) {
     return "This number not integer";
   }
+
   const numberAbs = Math.abs(number);
   const arrDigits = numberAbs.toString().split("");
   const arrNumber = [];
+
   for (i = 0; i < arrDigits.length; i++) {
     arrNumber.push(+arrDigits[i]);
   }
+
   return Math.max(...arrNumber);
 }
 
@@ -17,6 +20,7 @@ function getMaxDigit(number) {
 
 function numberInPow(number, pow) {
   let result = 1;
+
   if (!Number.isInteger(pow)) {
     return "pow is not integer";
   } else if (pow >= 0) {
@@ -28,6 +32,7 @@ function numberInPow(number, pow) {
     for (let i = 1; i <= -pow; i++) {
       result *= 1 / number;
     }
+
     return result;
   }
 }
@@ -38,6 +43,7 @@ function transformName(name) {
   if (!isNaN(name)) {
     return "This not a name";
   }
+
   return name[0].toUpperCase() + name.slice(1).toLowerCase();
 }
 
@@ -46,6 +52,7 @@ function transformName(name) {
 function salaryWithoutTax(salary) {
   let taxSalary = (salary * 19.5) / 100;
   let freshCash = salary - taxSalary;
+
   return freshCash;
 }
 
@@ -54,6 +61,7 @@ function salaryWithoutTax(salary) {
 function getRandomNumber(n, m) {
   const minNumber = Math.ceil(n);
   const maxNumber = Math.floor(m);
+
   return Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
 }
 
@@ -62,11 +70,13 @@ function getRandomNumber(n, m) {
 function countLetter(word, latter) {
   let lettersWord = word.toLowerCase().split("");
   let countLatter = 0;
+
   for (i = 0; i < lettersWord.length; i++) {
     if (lettersWord[i].toLowerCase() === latter.toLowerCase()) {
       countLatter++;
     }
   }
+
   return countLatter;
 }
 
@@ -77,13 +87,16 @@ function convertCurrency(sum, val) {
   const currencyCode = val.toUpperCase();
   const currencyCourse = 28;
   let result = 0;
+
   if (currencyCode === "$") {
     result = sum * currencyCourse;
     return sum.toFixed(2) + " UAH";
   } else if (currencyCode === "UAH") {
     result = sum / currencyCourse;
     return result.toFixed(2) + " $";
-  } else return "ERROR";
+  } else {
+    return "ERROR";
+  }
 }
 
 // #8 Створіть функцію генерації випадкового паролю (тільки числа), довжина встановлюється користувачем або по замовчуванню = 8 символам.
@@ -93,10 +106,13 @@ function getRandomPassword(amountSymbol = 8) {
   if (isNaN(amountSymbol) || amountSymbol <= 0) {
     return "Is not correct";
   }
+
   let password = "";
+
   for (let i = 1; i <= amountSymbol; i++) {
     password += Math.floor(Math.random() * 10);
   }
+
   return password;
 }
 
@@ -104,6 +120,7 @@ function getRandomPassword(amountSymbol = 8) {
 
 function deleteLetters(letter, word) {
   const newWord = word.toLowerCase().replaceAll(letter.toLowerCase(), "");
+
   return newWord;
 }
 
@@ -112,6 +129,7 @@ function deleteLetters(letter, word) {
 function isPalyndrom(word) {
   const unitedWords = word.toLowerCase().split(" ").join("");
   const reverseUnitedWords = unitedWords.split("").reverse().join("");
+
   return unitedWords === reverseUnitedWords;
 }
 
@@ -120,6 +138,7 @@ function isPalyndrom(word) {
 function deleteDuplicateLetter(sentence) {
   const sentenceToLowerCase = sentence.toLowerCase();
   let newSentence = "";
+
   for (let i = 0; i < sentenceToLowerCase.length; i++) {
     if (
       sentenceToLowerCase.indexOf(sentenceToLowerCase[i]) ===
@@ -128,6 +147,7 @@ function deleteDuplicateLetter(sentence) {
       newSentence += sentenceToLowerCase[i];
     }
   }
+
   return newSentence;
 }
 
