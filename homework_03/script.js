@@ -1,9 +1,12 @@
 // #1 Створити функцію getMaxDigit(number) – яка отримує будь-яке число та виводить найбільшу цифру в цьому числі. Приклади: 1236 -> 6, 987 -> 9, 385 -> 8
 
 function getMaxDigit(number) {
-  number = Math.abs(number);
-  let arrDigits = number.toString().split(".").join("");
-  let arrNumber = [];
+  if (!Number.isInteger(number)) {
+    return "This number not integer";
+  }
+  const numberAbs = Math.abs(number);
+  const arrDigits = numberAbs.toString().split("");
+  const arrNumber = [];
   for (i = 0; i < arrDigits.length; i++) {
     arrNumber.push(+arrDigits[i]);
   }
@@ -35,9 +38,12 @@ function transformName(name) {
   if (!isNaN(name)) {
     return "This not a name";
   }
-  name = name.toLowerCase();
-  name = name.replace(name[0], name[0].toUpperCase());
-  return name;
+  const nameToLowerCase = name.toLowerCase();
+  const resultName = nameToLowerCase.replace(
+    nameToLowerCase[0],
+    nameToLowerCase[0].toUpperCase()
+  );
+  return resultName;
 }
 
 // #4 Створити функцію, яка вираховує суму, що залишається після оплати податку від зарабітньої плати. (Податок = 18% + 1.5% -> 19.5%). Приклад: 1000 -> 805
@@ -51,9 +57,9 @@ function salaryWithoutTax(salary) {
 // #5 Створити функцію, яка повертає випадкове ціле число в діапазоні від N до M. Приклад: getRandomNumber(1, 10) -> 5
 
 function getRandomNumber(n, m) {
-  min = Math.ceil(n);
-  max = Math.floor(m);
-  return Math.floor(Math.random() * (max - min)) + min;
+  const minNumber = Math.ceil(n);
+  const maxNumber = Math.floor(m);
+  return Math.floor(Math.random() * (maxNumber - minNumber)) + minNumber;
 }
 
 // #6 Створити функцію, яка рахує скільки разів певна буква повторюється в слові. Приклад: countLetter("а", "Асталавіста") -> 4
@@ -73,14 +79,15 @@ function countLetter(word, latter) {
 // Врахуйте, інші валюти не конвертуються, потрібно виводити помилку, і також регістр uah не має значення.
 
 function convertCurrency(sum, val) {
-  val = val.toUpperCase();
-  let courseValue = 28;
-  if (val === "$") {
-    sum *= courseValue;
+  const currencyCode = val.toUpperCase();
+  const currencyCourse = 28;
+  let result = 0;
+  if (currencyCode === "$") {
+    result = sum * currencyCourse;
     return sum.toFixed(2) + " UAH";
-  } else if (val === "UAH") {
-    sum /= courseValue;
-    return sum.toFixed(2) + " $";
+  } else if (currencyCode === "UAH") {
+    result = sum / currencyCourse;
+    return result.toFixed(2) + " $";
   } else return "ERROR";
 }
 
@@ -101,50 +108,48 @@ function getRandomPassword(amountSymbol = 8) {
 // #9 Створіть функцію, яка видаляє всі букви з речення. Приклад: deleteLetters('a', "blablabla") -> "blblbl"
 
 function deleteLetters(letter, word) {
-  let newWord = "";
-  for (let i = 0; i < word.length; i++) {
-    if (letter.toLowerCase() !== word[i].toLowerCase()) {
-      newWord += word[i];
-    }
-  }
+  const newWord = word.toLowerCase().replaceAll(letter.toLowerCase(), "");
   return newWord;
 }
 
 // #10 Створіть функцію, яка перевіряє, чи є слово паліндромом. Приклад: isPalyndrom("мадам") -> true, isPalyndrom("кокос") -> false, isPalyndrom("Я несу гусеня") -> true
 
 function isPalyndrom(word) {
-  word = word.split(" ").join("");
-  let reversWord = "";
-  for (let i = word.length - 1; i >= 0; i--) {
-    reversWord += word[i];
+  const unitedWords = word.toLowerCase().split(" ").join("");
+  const reverseUnitedWords = unitedWords.split("").reverse().join("");
+  if (unitedWords === reverseUnitedWords) {
+    return true;
+  } else {
+    return false;
   }
-  if (word.toLowerCase() === reversWord.toLowerCase()) return true;
-  else return false;
 }
 
 // #11 Створіть функцію, яка видалить з речення букви, які зустрічаються більше 1 разу. Приклад: deleteDuplicateLetter("Бісквіт був дуже ніжним") -> "сктдеим"
 
 function deleteDuplicateLetter(sentence) {
-  sentence = sentence.toLowerCase();
+  const sentenceToLowerCase = sentence.toLowerCase();
   let newSentence = "";
-  for (let i = 0; i < sentence.length; i++) {
-    if (sentence.indexOf(sentence[i]) === sentence.lastIndexOf(sentence[i]))
-      newSentence += sentence[i];
+  for (let i = 0; i < sentenceToLowerCase.length; i++) {
+    if (
+      sentenceToLowerCase.indexOf(sentenceToLowerCase[i]) ===
+      sentenceToLowerCase.lastIndexOf(sentence[i])
+    )
+      newSentence += sentenceToLowerCase[i];
   }
   return newSentence;
 }
 
 function getResaltsAllFunctions() {
-  return `Функція №1: ${getMaxDigit(-127.8)}<br>
+  return `Функція №1: ${getMaxDigit(-1278)}<br>
 Функція №2: ${numberInPow(2, 3)}<br>
-Функція №3: ${transformName("Andrey")}<br>
+Функція №3: ${transformName("aNdrEy")}<br>
 Функція №4: ${salaryWithoutTax(3000)}<br>
 Функція №5: ${getRandomNumber(1, 10)}<br>
 Функція №6: ${countLetter("Асталавіста", "а")}<br>
 Функція №7: ${convertCurrency(100, "UaH")}<br>
 Функція №8: ${getRandomPassword()}<br>
 Функція №9: ${deleteLetters("a", "blablAbla")}<br>
-Функція №10: ${isPalyndrom("Я несу гусеня")}<br>
+Функція №10: ${isPalyndrom("Я несу гусенЯ")}<br>
 Функція №11: ${deleteDuplicateLetter("Бісквіт був дуже ніжним")}<br>`;
 }
 document.writeln(getResaltsAllFunctions());
