@@ -8,37 +8,36 @@ const marks = [4, 5, 5, 3, 4, 5];
 
 // #1 Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом. У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 
-function pairIntoTeams() {
-  const studentsTeams = [];
-  const firstTeam = [students[0], students[2]];
-  const secondTeam = [students[1], students[3]];
-  const thirdTeam = [students[4], students[5]];
+function pairIntoTeams(students) {
+  let studentsTeams = [];
+  const firstTeam = [].concat(students[0], students[2]);
+  const fsecondTeam = [].concat(students[1], students[3]);
+  const thirdTeam = [].concat(students[4], students[5]);
 
-  studentsTeams.push(firstTeam, secondTeam, thirdTeam);
+  studentsTeams.push(firstTeam, fsecondTeam, thirdTeam);
 
   return studentsTeams;
 }
-
-console.log("Function 1:", pairIntoTeams());
+const pairsTeams = pairIntoTeams(students);
+console.log("Function 1:", pairsTeams);
 
 // #2 Зіставте пари з попереднього завдання та теми проєктів, над якими студенти будуть працювати. Повинен вийти вкладений масив виду: [["Олександр і Олена", "Теорія автоматів"], [...], [...]]
 
-function teamsConcatWithThemes() {
+function teamsConcatWithThemes(pairTeam) {
   const teamsConcatThemes = [];
-  const pairsTeams = pairIntoTeams();
 
-  for (let i = 0; i < pairsTeams.length; i++) {
-    teamsConcatThemes.push([pairsTeams[i].join(" i "), themes[i]]);
+  for (let i = 0; i < pairTeam.length; i++) {
+    teamsConcatThemes.push([pairTeam[i].join(" i "), themes[i]]);
   }
 
   return teamsConcatThemes;
 }
-
-console.log("Function 2:", teamsConcatWithThemes());
+const teamsWithThemes = teamsConcatWithThemes(pairsTeams);
+console.log("Function 2:", teamsWithThemes);
 
 // #3 Зіставте оцінки(marks) зі студентом(students): [["Саша", 4], [...], [...]]
 
-function studentsConcatWithMarks() {
+function studentsConcatWithMarks(students) {
   const studentsMarks = [];
 
   for (let i = 0; i < students.length; i++) {
@@ -47,17 +46,15 @@ function studentsConcatWithMarks() {
 
   return studentsMarks;
 }
-
-console.log("Function 3:", studentsConcatWithMarks());
+const studentsWithMarks = studentsConcatWithMarks(students);
+console.log("Function 3:", studentsWithMarks);
 
 // #4 Поставте кожній парі випадкову оцінку(від 1 до 5) за проєкт(тут функція буде нечистою, але не повинна мутувати массив): [["Олександр і Олена", "Теорія автоматів", 5], [...], [...]]
 
-function teamsThemesConcatMarks() {
+function teamsThemesConcatMarks(teamsWithThemes, pairsTeams) {
   const teamsThemesMarks = [];
-  const teamstWithThemes = teamsConcatWithThemes();
-  const pairsTeams = pairIntoTeams();
 
-  for (let i = 0; i < teamstWithThemes.length; i++) {
+  for (let i = 0; i < teamsWithThemes.length; i++) {
     teamsThemesMarks.push([
       pairsTeams[i].join(" i "),
       themes[i],
@@ -67,5 +64,5 @@ function teamsThemesConcatMarks() {
 
   return teamsThemesMarks;
 }
-
-console.log("Function 4:", teamsThemesConcatMarks());
+const teamsThemesMarks = teamsThemesConcatMarks(teamsWithThemes, pairsTeams);
+console.log("Function 4:", teamsThemesMarks);

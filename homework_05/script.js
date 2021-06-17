@@ -9,7 +9,7 @@ function getRandomArray(length, min, max) {
       Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
     );
   }
-  console.log("array: ", resultArray);
+  console.log("1) array: ", resultArray);
 }
 getRandomArray(15, 1, 100);
 
@@ -20,14 +20,16 @@ function getModa(...numbers) {
   const arrIntegerNumber = [...numbers].filter((item) =>
     Number.isInteger(item)
   );
-  let newArr = [];
-  arrIntegerNumber.forEach(function (item, index) {
-    if (arrIntegerNumber.indexOf(item) !== arrIntegerNumber.lastIndexOf(item)) {
-      newArr.push(item);
-    }
-  });
+  const newArr = [];
 
-  console.log("moda: ", newArr);
+  arrIntegerNumber.sort(function (a, b) {
+    return a - b;
+  });
+  console.log(arrIntegerNumber)
+let count = 0
+ 
+
+  console.log("2) moda: ", newArr);
 }
 
 getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
@@ -46,7 +48,7 @@ function getAverage(...numbers) {
     avenger = sum / arrIntegerNumber.length;
   });
 
-  console.log("avenger: ", avenger);
+  console.log("3) avenger: ", avenger);
 }
 
 getAverage(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
@@ -72,7 +74,7 @@ function getMedian(...numbers) {
     }
   }
 
-  console.log("mediana = ", mediana);
+  console.log("4) mediana = ", mediana);
 }
 
 getMedian(1, 2, 3, 4, 5);
@@ -84,7 +86,7 @@ function filterEvenNumbers(...numbers) {
   const allNubers = [...numbers];
   const evenNumbers = allNubers.filter((number) => number % 2 !== 0);
 
-  console.log("evenNumbers: ", evenNumbers);
+  console.log("5) evenNumbers: ", evenNumbers);
 }
 
 filterEvenNumbers(1, 2, 3, 4, 5, 6);
@@ -97,7 +99,7 @@ function countPositiveNumbers(...numbers) {
   const positiveNumbers = allNubers.filter((number) => number > 0);
   const amountPositiveNumbers = positiveNumbers.length;
 
-  console.log("amountPositiveNumbers: ", amountPositiveNumbers);
+  console.log("6) amountPositiveNumbers: ", amountPositiveNumbers);
 }
 
 countPositiveNumbers(1, -2, 3, -4, -5, 6);
@@ -108,7 +110,7 @@ countPositiveNumbers(1, -2, 3, -4, -5, 6);
 function getDividedByFive(...numbers) {
   const allNubers = [...numbers];
   const resultNumbers = allNubers.filter((number) => number % 5 === 0);
-  console.log("resultNumbers: ", resultNumbers);
+  console.log("7) resultNumbers: ", resultNumbers);
 }
 
 getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
@@ -119,7 +121,31 @@ getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 function replaceBadWords(string) {
   const arrayWords = string.split(" ").join(" ");
 
-  console.log("1) ", arrayWords);
+  console.log("8) ", arrayWords);
 }
 
 replaceBadWords("Are you fucking kidding?");
+
+// 9. Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви. Якщо букв менше трьох – не розбиває. Пробіли завжди видаляються. Рядок приводится до нижнього регістру. Приклад: divideByThree("Commander) -> ["com", "man", "der"] Приклад: divideByThree("live") -> ["liv", "e"]
+
+function divideByThree(word) {
+  const arrayLetters = word.toLowerCase().replace(" ", "").split("");
+  const syllables = [];
+
+  for (let i = 0; i < arrayLetters.length; i += 3) {
+    syllables.push(arrayLetters.slice(i, i + 3).join(""));
+  }
+
+  console.log("9) syllables:", syllables);
+}
+
+divideByThree("live");
+
+// 10. Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові. Для тестів не передавайте слова в яких більше 10 букв. Краще взагалі обмежити работу функції 10 буквами. Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"] Приклад: generateCombinations("ol") -> ["ol", "lo"]
+
+function generateCombinations(word) {
+
+  console.log("10) ")
+}
+
+generateCombinations("man")
