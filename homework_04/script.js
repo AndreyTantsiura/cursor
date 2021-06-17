@@ -9,10 +9,10 @@ const marks = [4, 5, 5, 3, 4, 5];
 // #1 Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом. У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 
 function pairIntoTeams(students) {
-  let studentsTeams = [];
-  const firstTeam = [].concat(students[0], students[2]);
-  const fsecondTeam = [].concat(students[1], students[3]);
-  const thirdTeam = [].concat(students[4], students[5]);
+  const studentsTeams = [];
+  const firstTeam = [students[0], students[2]];
+  const fsecondTeam = [students[1], students[3]];
+  const thirdTeam = [students[4], students[5]];
 
   studentsTeams.push(firstTeam, fsecondTeam, thirdTeam);
 
@@ -58,7 +58,7 @@ function teamsThemesConcatMarks(teamsWithThemes, pairsTeams) {
     teamsThemesMarks.push([
       pairsTeams[i].join(" i "),
       themes[i],
-      Math.floor(Math.random() * (5 - 1 + 1)) + 1,
+      Math.floor(Math.random() * 5) + 1,
     ]);
   }
 
