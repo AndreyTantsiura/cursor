@@ -20,18 +20,33 @@ function getModa(...numbers) {
   const arrIntegerNumber = [...numbers].filter((item) =>
     Number.isInteger(item)
   );
-  const newArr = [];
+  const arrRepeatNumbers = [];
+  let mode;
+  let countRepeat = 1;
+  let maxCountRepeat;
 
   arrIntegerNumber.sort(function (a, b) {
     return a - b;
   });
-  console.log(arrIntegerNumber)
-let count = 0
- for (let i = 0; i < arrIntegerNumber.length; i++) {
-  
- }
 
-  console.log("2) moda: ", newArr);
+  arrIntegerNumber.forEach((item, index) => {
+    if (item === arrIntegerNumber[index + 1]) {
+      countRepeat++;
+    } else {
+      countRepeat = 1;
+    }
+    arrRepeatNumbers.push(countRepeat);
+  });
+
+  maxCountRepeat = Math.max(...arrRepeatNumbers);
+
+  arrRepeatNumbers.forEach((item, index) => {
+    if (item === maxCountRepeat) {
+      mode = arrIntegerNumber[index];
+    }
+  });
+
+  console.log("2) mode = ", mode);
 }
 
 getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
@@ -121,12 +136,22 @@ getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 // Приклад: replaceBadWords("Are you fucking kidding?") -> "Are you ****ing kidding?" Приклад: replaceBadWords("Holy shit!") -> "Holy ****!" Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
 function replaceBadWords(string) {
-  const arrayWords = string.split(" ").join(" ");
+  const strigWords = string.split(" ");
+  let badWords = ["shit", "fuck"];
+  const replaceBy = "****";
+  let censoredString = "";
 
-  console.log("8) ", arrayWords);
+  for (let i = 0; i < strigWords.length; i++) {
+    for (let j = 0; j < badWords.length; j++) {
+      if (strigWords[i].includes(badWords[j])) {
+        censoredString = (strigWords.toString()).replace(badWords[j], replaceBy).split(',').join(' ');
+      }
+    }
+  }
+  console.log("8) censoredString: ", censoredString);
 }
 
-replaceBadWords("Are you fucking kidding?");
+replaceBadWords("It's bullshit!");
 
 // 9. Створіть функцію divideByThree(word), яка розбиває кожне слово на умовні склади по 3 букви. Якщо букв менше трьох – не розбиває. Пробіли завжди видаляються. Рядок приводится до нижнього регістру. Приклад: divideByThree("Commander) -> ["com", "man", "der"] Приклад: divideByThree("live") -> ["liv", "e"]
 
@@ -146,8 +171,7 @@ divideByThree("live");
 // 10. Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові. Для тестів не передавайте слова в яких більше 10 букв. Краще взагалі обмежити работу функції 10 буквами. Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"] Приклад: generateCombinations("ol") -> ["ol", "lo"]
 
 function generateCombinations(word) {
-
-  console.log("10) ")
+  console.log("10) ");
 }
 
-generateCombinations("man")
+generateCombinations("man");
