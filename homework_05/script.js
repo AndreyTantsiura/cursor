@@ -140,9 +140,9 @@ function replaceBadWords(string) {
   let badWords = ["shit", "fuck"];
   const censorWord = "****";
 
-  for (let j = 0; j < badWords.length; j++) {
-    censoredString = censoredString.replaceAll(badWords[j], censorWord);
-  }
+  badWords.forEach((item, index) => {
+    censoredString = censoredString.replaceAll(badWords[index], censorWord);
+  });
 
   console.log("8) censoredString: ", censoredString);
 }
