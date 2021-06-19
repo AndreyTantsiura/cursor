@@ -136,7 +136,7 @@ getDividedByFive(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2);
 // Приклад: replaceBadWords("Are you fucking kidding?") -> "Are you ****ing kidding?" Приклад: replaceBadWords("Holy shit!") -> "Holy ****!" Приклад: replaceBadWords("It's bullshit!") -> "It's bull****!"
 
 function replaceBadWords(string) {
-  let censoredString = string;
+  let censoredString = string.toLowerCase().split(" ").join(" ");
   let badWords = ["shit", "fuck"];
   const censorWord = "****";
 
@@ -165,3 +165,34 @@ function divideByThree(word) {
 divideByThree("live");
 
 // 10. Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові. Для тестів не передавайте слова в яких більше 10 букв. Краще взагалі обмежити работу функції 10 буквами. Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"] Приклад: generateCombinations("ol") -> ["ol", "lo"]
+
+function generateCombinations(word) {
+  if (word.length > 10 || word.length <= 1) {
+    return "the word is too long. Please keep it under 10 letters";
+  }
+  function permutation(word) {
+    const letters = word.split("");
+    let combinations = [];
+    if (letters.length === 1) return letters;
+
+    for (let i = 0; i < letters.length; i++) {
+      const firstLetter = letters[i];
+      const restLetters = letters.slice(0, i).concat(letters.slice(i + 1));
+      const restLettersCombinations = permutation(restLetters.join(""));
+
+      for (let j = 0; j < restLettersCombinations.length; j++) {
+        const combinationArray = [firstLetter].concat(
+          restLettersCombinations[j]
+        );
+        let newWord = combinationArray.join("");
+        if (combinations.includes(newWord)) continue;
+        else combinations.push(newWord);
+      }
+    }
+
+    return combinations;
+  }
+  return `${permutation(word)}`;
+}
+
+console.log("task 10", "generate combinations", generateCombinations("man"));
