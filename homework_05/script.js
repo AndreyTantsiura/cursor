@@ -167,13 +167,13 @@ divideByThree("live");
 // 10. Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові. Для тестів не передавайте слова в яких більше 10 букв. Краще взагалі обмежити работу функції 10 буквами. Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"] Приклад: generateCombinations("ol") -> ["ol", "lo"]
 
 function generateCombinations(word) {
-  if (word.length > 10 || word.length <= 1) {
-    return "the word is too long. Please keep it under 10 letters";
+  if (word.length > 10) {
+    return "the word is too long";
   }
   function permutation(word) {
     const letters = word.split("");
     let combinations = [];
-    if (letters.length === 1) return letters;
+    if (letters.length === 1) return letters.join(" ");
 
     for (let i = 0; i < letters.length; i++) {
       const firstLetter = letters[i];
