@@ -31,10 +31,6 @@ const students = [
 // #1. Створіть функцію getSubjects(students[0] --> ["Math", "Algorithms", "Data science"] - яка повертає список предметів для конкретного студента. Зверніть увагу – назву предмету необхідно повертати з великої літери, а _ – замінити на пробіл
 
 function getSubjects(student) {
-  if (!student) {
-    console.log("student is absent");
-  }
-
   let listSubjects = Object.keys(student.subjects);
 
   listSubjects = listSubjects.map((item) => {
@@ -50,9 +46,6 @@ console.log("List subjects:", getSubjects(firstStudent));
 // #2. Створіть функцію getAverageMark(students[0]) --> 3.79 – яка поверне середню оцінку по усім предметам для переданого студента НЕ МАСИВА СТУДЕНТІВ. Оцінку округліть до 2ого знаку. Можна використовувати функції, написані у попередніх домашніх завданнях :)
 
 function getAverageMark(student) {
-  if (!student) {
-    console.log("student is absent");
-  }
   let sumMarks = 0;
   let averageMark;
   let marksSubjects = Object.values(student.subjects).flat();
