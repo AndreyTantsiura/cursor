@@ -162,7 +162,7 @@ function divideByThree(word) {
   console.log("9) syllables:", syllables);
 }
 
-divideByThree("live");
+divideByThree("Commander");
 
 // 10. Створіть функцію generateCombinations(word), яка видасть всі можливі перестановки(унікальні, без повторень) букв в слові. Для тестів не передавайте слова в яких більше 10 букв. Краще взагалі обмежити работу функції 10 буквами. Приклад: generateCombinations("man") -> ["man", "mna", "amn", "anm", "nam", "nma"] Приклад: generateCombinations("ol") -> ["ol", "lo"]
 

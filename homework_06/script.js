@@ -34,7 +34,7 @@ function getSubjects(student) {
   let listSubjects = Object.keys(student.subjects);
 
   listSubjects = listSubjects.map((item) => {
-    return item.charAt(0).toUpperCase() + item.slice(1).replaceAll("_", "-");
+    return item.charAt(0).toUpperCase() + item.slice(1).replaceAll("_", " ");
   });
 
   return listSubjects;
@@ -108,17 +108,17 @@ console.log("The best student: ", getBestStudent(students));
 
 function calculateWordLetters(word) {
   const arrLetters = word.split("");
-  const objrepeatLetters = {};
+  const objRepeatLetters = {};
 
   for (let i = 0; i < arrLetters.length; i++) {
-    if (objrepeatLetters[arrLetters[i]]) {
-      objrepeatLetters[arrLetters[i]]++;
+    if (objRepeatLetters[arrLetters[i]]) {
+      objRepeatLetters[arrLetters[i]]++;
     } else {
-      objrepeatLetters[arrLetters[i]] = 1;
+      objRepeatLetters[arrLetters[i]] = 1;
     }
   }
 
-  return objrepeatLetters;
+  return objRepeatLetters;
 }
 
 console.log("Object repeat letters:", calculateWordLetters("тест"));
