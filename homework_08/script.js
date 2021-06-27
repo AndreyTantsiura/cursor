@@ -65,14 +65,19 @@ console.log("Оцінки студента до оцінювання:", ostap.ge
 
 //Advanced
 
-//1
 class BudgetStudent extends Student {
   constructor(university, course, fullName) {
     super(university, course, fullName);
+    this.marks = [5, 4, 4, 5];
+    setInterval(this.getScholarship, 3000);
   }
-  static getScholarship(cash) {
+
+  getScholarship(cash) {
     if (!this.dismissed && this.getAverageMark() >= 4)
       return `Ви отримали ${cash} грн. стипендії`;
+    else {
+      return "Ви не отримуєте стипендію!";
+    }
   }
 }
 
@@ -82,4 +87,4 @@ const budgetStudent = new BudgetStudent(
   "Andrii Tantsiura"
 );
 
-console.log(BudgetStudent.getScholarship(1400));
+console.log(budgetStudent.getScholarship(1400));
