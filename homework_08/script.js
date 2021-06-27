@@ -3,7 +3,7 @@ class Student {
     this.university = university;
     this.course = course;
     this.fullName = fullName;
-    this.marks = [3, 4, 4, 3];
+    this.marks = [5, 4, 4, 5];
     this.dismissed = false;
   }
 
@@ -71,7 +71,8 @@ class BudgetStudent extends Student {
     super(university, course, fullName);
   }
   static getScholarship(cash) {
-    if (this.dismissed) return `Ви отримали ${cash} грн. стипендії`;
+    if (!this.dismissed && this.getAverageMark() >= 4)
+      return `Ви отримали ${cash} грн. стипендії`;
   }
 }
 
@@ -80,4 +81,5 @@ const budgetStudent = new BudgetStudent(
   "2",
   "Andrii Tantsiura"
 );
+
 console.log(BudgetStudent.getScholarship(1400));
