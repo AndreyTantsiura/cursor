@@ -4,20 +4,21 @@ class Student {
     this.course = course;
     this.fullName = fullName;
     this.marks = [3, 4, 4, 3];
+    this.dismissed = false;
   }
 
   getInfo() {
-    if (!this.university) return null;
+    if (this.dismissed) return null;
     return `Студент ${this.course}го курсу ${this.university}, ${this.fullName}`;
   }
 
   get getMarks() {
-    if (!this.university) return null;
+    if (this.dismissed) return null;
     return this.marks;
   }
 
   set setMarks(newMark) {
-    if (!this.university) return null;
+    if (this.dismissed) return null;
     return this.marks.push(newMark);
   }
 
@@ -26,11 +27,11 @@ class Student {
   }
 
   dismiss() {
-    this.university = !this.university;
+    this.dismissed = true;
   }
 
   recover() {
-    this.university = true;
+    this.dismissed = false;
   }
 }
 
@@ -67,14 +68,16 @@ console.log("Оцінки студента до оцінювання:", ostap.ge
 //1
 class BudgetStudent extends Student {
   constructor(university, course, fullName) {
-    this.university = university;
-    this.course = course;
-    this.fullName = fullName;
+    super(university, course, fullName);
   }
   static getScholarship(cash) {
-    if (!this.university) return `Ви отримали ${cash} грн. стипендії`;
+    if (this.dismissed) return `Ви отримали ${cash} грн. стипендії`;
   }
 }
 
-//2
+const budgetStudent = new BudgetStudent(
+  "Вищої Школи Психотерапії м.Одеса",
+  "2",
+  "Andrii Tantsiura"
+);
 console.log(BudgetStudent.getScholarship(1400));
