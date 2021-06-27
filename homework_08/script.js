@@ -3,7 +3,7 @@ class Student {
     this.university = university;
     this.course = course;
     this.fullName = fullName;
-    this.marks = [5, 4, 4, 5];
+    this.marks = [3, 4, 4, 3];
   }
 
   getInfo() {
@@ -61,3 +61,20 @@ console.log("Оцінки студента до оцінювання:", ostap.ge
 //7
 ostap.recover();
 console.log("Оцінки студента до оцінювання:", ostap.getMarks);
+
+//Advanced
+
+//1
+class BudgetStudent extends Student {
+  constructor(university, course, fullName) {
+    this.university = university;
+    this.course = course;
+    this.fullName = fullName;
+  }
+  static getScholarship(cash) {
+    if (!this.university) return `Ви отримали ${cash} грн. стипендії`;
+  }
+}
+
+//2
+console.log(BudgetStudent.getScholarship(1400));
