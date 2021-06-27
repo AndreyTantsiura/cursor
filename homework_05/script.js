@@ -2,13 +2,11 @@
 
 function getRandomArray(length, min, max) {
   let resultArray = [];
-  const minNumber = Math.ceil(min);
-  const maxNumber = Math.floor(max);
+
   for (let i = 1; i <= length; i++) {
-    resultArray.push(
-      Math.floor(Math.random() * (maxNumber - minNumber + 1)) + minNumber
-    );
+    resultArray.push(Math.floor(Math.random() * (max - min + 1)) + min);
   }
+
   console.log("1) array: ", resultArray);
 }
 getRandomArray(15, 1, 100);
@@ -17,18 +15,12 @@ getRandomArray(15, 1, 100);
 // Приклад: getModa(6, 2, 55, 11, 78, 2, 55, 77, 57, 87, 23, 2, 56, 3, 2) –> 2
 
 function getModa(...numbers) {
-  const arrIntegerNumber = [...numbers].filter((item) =>
-    Number.isInteger(item)
-  );
+  const arrIntegerNumber = numbers.filter((item) => Number.isInteger(item));
   const arrRepeatNumbers = [];
-  let mode;
+  let mode = null;
   let countRepeat = 1;
-  let maxCountRepeat;
 
-  arrIntegerNumber.sort(function (a, b) {
-    return a - b;
-  });
-
+  arrIntegerNumber.sort((a, b) => a - b);
   arrIntegerNumber.forEach((item, index) => {
     if (item === arrIntegerNumber[index + 1]) {
       countRepeat++;
@@ -38,7 +30,7 @@ function getModa(...numbers) {
     arrRepeatNumbers.push(countRepeat);
   });
 
-  maxCountRepeat = Math.max(...arrRepeatNumbers);
+  const maxCountRepeat = Math.max(...arrRepeatNumbers);
 
   arrRepeatNumbers.forEach((item, index) => {
     if (item === maxCountRepeat) {
@@ -60,7 +52,8 @@ function getAverage(...numbers) {
   );
   let sum = 0;
   let avenger = 0;
-  arrIntegerNumber.forEach((item, index, arr) => {
+
+  arrIntegerNumber.forEach((item) => {
     sum += item;
     avenger = sum / arrIntegerNumber.length;
   });
@@ -79,9 +72,7 @@ function getMedian(...numbers) {
   );
   let mediana = 0;
 
-  arrIntegerNumber.sort(function (a, b) {
-    return a - b;
-  });
+  arrIntegerNumber.sort((a, b) => a - b);
 
   for (let i = 0; i < arrIntegerNumber.length / 2; i++) {
     if (arrIntegerNumber.length % 2 !== 0) {
@@ -100,9 +91,7 @@ getMedian(1, 2, 3, 4, 5);
 // Приклад: filterEvenNumbers(1, 2, 3, 4, 5, 6) -> [1, 3, 5]
 
 function filterEvenNumbers(...numbers) {
-  const allNubers = [...numbers];
-  const evenNumbers = allNubers.filter((number) => number % 2 !== 0);
-
+  const evenNumbers = numbers.filter((number) => number % 2 !== 0);
   console.log("5) evenNumbers: ", evenNumbers);
 }
 
@@ -112,10 +101,8 @@ filterEvenNumbers(1, 2, 3, 4, 5, 6);
 // Приклад: countPositiveNumbers(1, -2, 3, -4, -5, 6) -> 3
 
 function countPositiveNumbers(...numbers) {
-  const allNubers = [...numbers];
-  const positiveNumbers = allNubers.filter((number) => number > 0);
+  const positiveNumbers = numbers.filter((number) => number > 0);
   const amountPositiveNumbers = positiveNumbers.length;
-
   console.log("6) amountPositiveNumbers: ", amountPositiveNumbers);
 }
 
