@@ -50,6 +50,7 @@ console.log("Оцінки студента до оцінювання:", ostap.ge
 
 //4
 ostap.setMarks = 5;
+
 console.log("Оцінки студента після оцінювання:", ostap.getMarks);
 
 //5

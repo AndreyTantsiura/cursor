@@ -47,7 +47,7 @@ console.log("List subjects:", getSubjects(firstStudent));
 
 function getAverageMark(student) {
   let sumMarks = 0;
-  let averageMark;
+  let averageMark = null;
   let marksSubjects = Object.values(student.subjects).flat();
 
   for (let i = 0; i < marksSubjects.length; i++) {
@@ -87,19 +87,20 @@ console.log("Sort name students:", getStudentsNames(students));
 function getBestStudent(student) {
   let studentInfo = [];
   let bestStudent = [];
-  let bestAverage;
+  let arrayAvaregeMarks = [];
 
   for (let i = 0; i < student.length; i++) {
     studentInfo.push(getStudentInfo(student[i]));
-    bestAverage = Math.max(studentInfo[i].averageMark);
+    arrayAvaregeMarks.push(studentInfo[i].averageMark);
   }
+
+  const bestAverage = Math.max(...arrayAvaregeMarks);
 
   for (let i = 0; i < studentInfo.length; i++) {
     if (studentInfo[i].averageMark === bestAverage) {
       bestStudent.push(studentInfo[i].name);
     }
   }
-
   return bestStudent.join("");
 }
 console.log("The best student: ", getBestStudent(students));
@@ -111,11 +112,7 @@ function calculateWordLetters(word) {
   const objRepeatLetters = {};
 
   for (let i = 0; i < arrLetters.length; i++) {
-    if (objRepeatLetters[arrLetters[i]]) {
-      objRepeatLetters[arrLetters[i]]++;
-    } else {
-      objRepeatLetters[arrLetters[i]] = 1;
-    }
+    objRepeatLetters[arrLetters[i]] = objRepeatLetters[arrLetters[i]] + 1 || 1;
   }
 
   return objRepeatLetters;
