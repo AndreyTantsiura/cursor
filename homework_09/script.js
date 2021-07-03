@@ -19,10 +19,12 @@ generateBlocks();
 
 function generateBlocksInterval() {
   setInterval(() => {
-    const block = document.querySelectorAll("#block")
-    block.style.backgroundColor =
-    "#" + Math.floor(Math.random() * 16777215).toString(16);
-  }, 1000)
+    const block = document.querySelectorAll("#block");
+    for (let i = 0; i < block.length; i++) {
+      block[i].style.backgroundColor =
+        "#" + Math.floor(Math.random() * 16777215).toString(16);
+    }
+  }, 1000);
 }
 
-generateBlocksInterval()
+generateBlocksInterval();
