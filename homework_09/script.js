@@ -1,12 +1,28 @@
-for (let i = 0; i < 24; i++) {
-  let block = document.getElementById("block");
-  let cloneBlock = block.cloneNode();
-  let colorBlock = block.getAttribute("background-color")
-  cloneBlock.setAttribute("background-color", generateColor())
+function generateBlocks(width = "50", height = "50", column = 5) {
+  const row = document.createElement("div");
+  row.setAttribute("id", "row");
+  row.style.width = width * column + "px";
+  document.body.append(row);
 
-  document.body.append(cloneBlock);
+  for (let i = 0; i < 25; i++) {
+    const block = document.createElement("div");
+    block.setAttribute("id", "block");
+    block.style.width = width + "px";
+    block.style.height = height + "px";
+    block.style.backgroundColor =
+      "#" + Math.floor(Math.random() * 16777215).toString(16);
+    row.append(block);
+  }
 }
 
-function generateColor() {
-	return '#' + Math.floor(Math.random() * 16777215).toString(16)
- }
+generateBlocks();
+
+function generateBlocksInterval() {
+  setInterval(() => {
+    const block = document.querySelectorAll("#block")
+    block.style.backgroundColor =
+    "#" + Math.floor(Math.random() * 16777215).toString(16);
+  }, 1000)
+}
+
+generateBlocksInterval()
