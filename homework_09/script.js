@@ -6,7 +6,7 @@ function generateBlocks(width = "50", height = "50", column = 5) {
 
   for (let i = 0; i < 25; i++) {
     const block = document.createElement("div");
-    block.setAttribute("id", "block");
+    block.classList.add("block");
     block.style.width = width + "px";
     block.style.height = height + "px";
     block.style.backgroundColor =
@@ -19,11 +19,11 @@ generateBlocks();
 
 function generateBlocksInterval() {
   setInterval(() => {
-    const block = document.querySelectorAll("#block");
+    const block = document.querySelectorAll(".block");
     block.forEach((item) => {
       item.style.backgroundColor =
         "#" + Math.floor(Math.random() * 16777215).toString(16);
-    })
+    });
   }, 1000);
 }
 
