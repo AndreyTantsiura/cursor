@@ -16,6 +16,7 @@ keys.addEventListener("click", (e) => {
   removeClassPlaying();
   audio.forEach((item) => {
     if (item.getAttribute("id") === e.target.getAttribute("id")) {
+      console.log(e.target)
       item.play();
       e.target.classList.add("playing");
     }
