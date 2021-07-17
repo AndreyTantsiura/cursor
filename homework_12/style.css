@@ -1,0 +1,11 @@
+body {
+  background: url(https://img2.goodfon.ru/original/3200x1200/2/6e/star-wars-episode-v-the.jpg)
+    no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #fff;
+}
+
+#planetsList {
+  float: right;
+}
