@@ -9,11 +9,14 @@ function getCharactersData() {
       return axios.get(item).then((response) => {
         const result = {
           name: response.data.name,
-          "birth year": response.data.birth_year,
+          birth_year: response.data.birth_year,
           gender: response.data.gender,
         };
-        const charactersList = document.getElementById("characters")
-        charactersList.insertAdjacentHTML("beforeend", `<ul><li>${result}</li></ul>`);
+        const charactersList = document.getElementById("characters");
+        charactersList.insertAdjacentHTML(
+          "beforeend",
+          `<div id="icon">${result.name} (${result.birth_year}, ${result.gender})</div>`
+        );
       });
     });
   });
@@ -33,5 +36,7 @@ function getPlanets() {
 
 const planetsList = document.getElementById("planetsList");
 sortPlanets = () => {
-  planets.map((p, i) => planetsList.insertAdjacentHTML("beforeend", `<ul><li>${p.name}</li></ul>`));
+  planets.map((p, i) =>
+    planetsList.insertAdjacentHTML("beforeend", `<ul><li>${p.name}</li></ul>`)
+  );
 };
