@@ -2,18 +2,21 @@ const getCharacters = document.getElementById("getCharacters");
 
 getCharacters.addEventListener("click", getCharactersData);
 
+let numberEpisod = 2;
 const select = document.getElementById("selectEpisod");
 select.addEventListener("change", (e) => {
-  let numberEpisod = e.target.value;
-  return numberEpisod
+  numberEpisod = e.target.value;
+  return numberEpisod;
 });
 
-
 function getCharactersData() {
+  document.getElementById("characters").innerHTML = "";
   document.getElementById("planetsList").innerHTML = "";
-  
-  axios.get(`https://swapi.dev/api/films/2/`).then((respons) => {
+
+  axios.get(`https://swapi.dev/api/films/${numberEpisod}/`).then((respons) => {
+
     arrLink = respons.data.characters;
+    console.log(arrLink)
     arrLink.map((item) => {
       return axios.get(item).then((response) => {
         const id = parseInt(response.config.url.replace(/\D+/g, ""));

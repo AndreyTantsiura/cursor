@@ -1,10 +1,10 @@
 class Student {
-  constructor(university, course, fullName) {
+  constructor(university, course, fullName, marks, dismissed) {
     this.university = university;
     this.course = course;
     this.fullName = fullName;
-    this.marks = [5, 4, 4, 5];
-    this.dismissed = false;
+    this.marks = marks;
+    this.dismissed = dismissed;
   }
 
   getInfo() {
@@ -19,7 +19,7 @@ class Student {
 
   set setMarks(newMark) {
     if (this.dismissed) return null;
-    return this.marks.push(newMark);
+    return (this.marks = [...this.marks, newMark]);
   }
 
   getAverageMark() {
@@ -39,7 +39,9 @@ class Student {
 const ostap = new Student(
   "Вищої Школи Психотерапії м.Одеса",
   "1",
-  "Остап Родоманський Бендер"
+  "Остап Родоманський Бендер",
+  [5, 4, 4, 5],
+  false
 );
 
 //2
