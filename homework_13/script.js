@@ -2,9 +2,17 @@ const getCharacters = document.getElementById("getCharacters");
 
 getCharacters.addEventListener("click", getCharactersData);
 
+const select = document.getElementById("selectEpisod");
+select.addEventListener("change", (e) => {
+  let numberEpisod = e.target.value;
+  return numberEpisod
+});
+
+
 function getCharactersData() {
   document.getElementById("planetsList").innerHTML = "";
-  axios.get("https://swapi.dev/api/films/2/").then((respons) => {
+  
+  axios.get(`https://swapi.dev/api/films/2/`).then((respons) => {
     arrLink = respons.data.characters;
     arrLink.map((item) => {
       return axios.get(item).then((response) => {
@@ -23,7 +31,7 @@ function getCharactersData() {
 
         charactersList.insertAdjacentHTML(
           "beforeend",
-          `<div id="icon"><p>${result.name} (${result.birth_year}, ${result.gender})</p></div>`
+          `<div id="icon"><p>Name: ${result.name}<br><span>Year of birth: ${result.birth_year}</span><br><span>Gender: ${result.gender}</span></p></div>`
         );
         charactersList.append(img);
       });

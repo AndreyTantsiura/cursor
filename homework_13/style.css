@@ -4,6 +4,23 @@ body {
   background-size: cover;
   background-attachment: fixed;
   color: #fff;
+  text-align: center;
+}
+
+select {
+  margin: 2em;
+  width: 20em;
+  font-size: 125%;
+  font-weight: 700;
+  text-decoration: none;
+  user-select: none;
+  padding: 0.25em 0.5em;
+  outline: none;
+  border: 1px solid rgb(250, 172, 17);
+  border-radius: 7px;
+  background: rgb(255, 212, 3)
+    linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+  text-align-last: center;
 }
 
 .buttons,
@@ -34,8 +51,9 @@ li {
   align-items: center;
 }
 
-li:hover, img:hover {
-  box-shadow: 0px 10px 30px -15px rgba(0, 0, 0, 1);
+li:hover,
+img:hover {
+  box-shadow: 0px 10px 30px -15px rgba(255, 212, 5);
 }
 
 #icon {
