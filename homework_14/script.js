@@ -8,9 +8,10 @@ function* createIdGenerator() {
 
 const idGenerator = createIdGenerator();
 
-console.log(idGenerator.next().value);
-console.log(idGenerator.next().value);
-console.log(idGenerator.next().value);
+console.log("task 1:")
+console.log("idGenerator.next().value ->", idGenerator.next().value);
+console.log("idGenerator.next().value ->", idGenerator.next().value);
+console.log("idGenerator.next().value ->", idGenerator.next().value);
 
 ////////advanced
 
@@ -30,11 +31,12 @@ function* newFontGenerator(i) {
 
 const fontGenerator = newFontGenerator(14);
 
-console.log(fontGenerator.next("up").value);
-console.log(fontGenerator.next("up").value);
-console.log(fontGenerator.next("up").value);
-console.log(fontGenerator.next().value);
-console.log(fontGenerator.next("down").value);
-console.log(fontGenerator.next("down").value);
-console.log(fontGenerator.next("down").value);
-console.log(fontGenerator.next().value);
+console.log("advanced:")
+console.log("idGenerator.next('up').value ->", fontGenerator.next("up").value);
+console.log("idGenerator.next('up').value ->", fontGenerator.next("up").value);
+console.log("idGenerator.next('up').value ->", fontGenerator.next("up").value);
+console.log("idGenerator.next().value ->", fontGenerator.next().value);
+console.log("idGenerator.next('down').value ->", fontGenerator.next("down").value);
+console.log("idGenerator.next('down').value ->", fontGenerator.next("down").value);
+console.log("idGenerator.next('down').value ->", fontGenerator.next("down").value);
+console.log("idGenerator.next().value ->", fontGenerator.next().value);
