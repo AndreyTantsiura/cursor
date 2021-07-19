@@ -49,10 +49,12 @@ getPlanetsList.addEventListener("click", getPlanets);
 let planets = null;
 function getPlanets() {
   document.getElementById("characters").innerHTML = "";
-  axios.get("https://swapi.dev/api/planets/").then((response) => {
+  document.getElementById("planetsList").innerHTML = "";
+  axios.get(`https://swapi.dev/api/planets/?page=${numberEpisod}`).then((response) => {
     planets = response.data.results;
     sortPlanets();
   });
+  console.log(numberEpisod)
 }
 
 const planetsList = document.getElementById("planetsList");
