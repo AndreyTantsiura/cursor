@@ -44,8 +44,11 @@ li {
   user-select: none;
   padding: 0.25em 0.5em;
   outline: none;
+  background: rgb(255, 212, 3)
+  linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
   border: 1px solid rgb(250, 172, 17);
   border-radius: 7px;
+  opacity: 0.5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -54,6 +57,7 @@ li {
 li:hover,
 img:hover {
   box-shadow: 0px 10px 30px -15px rgba(255, 212, 5);
+  opacity: 1;
 }
 
 #icon {

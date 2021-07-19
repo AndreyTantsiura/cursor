@@ -61,3 +61,9 @@ sortPlanets = () => {
     planetsList.insertAdjacentHTML("beforeend", `<ul><li>${p.name}</li></ul>`)
   );
 };
+
+const tgetToWookiee = document.getElementById("wookiee");
+
+function translateToWookiee() {
+  
+}
