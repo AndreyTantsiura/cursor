@@ -4,6 +4,8 @@ getCharacters.addEventListener("click", getCharactersData);
 let numberEpisod = 2;
 const select = document.getElementById("selectEpisod");
 select.addEventListener("change", (e) => {
+  document.getElementById("characters").innerHTML = "";
+  document.getElementById("planetsList").innerHTML = "";
   numberEpisod = e.target.value;
   return numberEpisod;
 });
