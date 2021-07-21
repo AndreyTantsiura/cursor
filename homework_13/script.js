@@ -1,7 +1,7 @@
 const getCharacters = document.getElementById("getCharacters");
 getCharacters.addEventListener("click", getCharactersData);
 
-let numberEpisod = 1;
+let numberEpisod = 2;
 const select = document.getElementById("selectEpisod");
 select.addEventListener("change", (e) => {
   numberEpisod = e.target.value;
@@ -13,8 +13,8 @@ function getCharactersData() {
   document.getElementById("planetsList").innerHTML = "";
 
   axios.get(`https://swapi.dev/api/films/${numberEpisod}/`).then((respons) => {
-    arrLink = respons.data.characters;
-    arrLink.map((item) => {
+    const arrLinkCharacters = respons.data.characters;
+    arrLinkCharacters.map((item) => {
       return axios.get(item).then((response) => {
         const id = parseInt(response.config.url.replace(/\D+/g, ""));
 
@@ -42,24 +42,24 @@ function getCharactersData() {
 const getPlanetsList = document.getElementById("getPlanetsList");
 getPlanetsList.addEventListener("click", getPlanets);
 
+const planetsList = document.getElementById("planetsList");
 let planets = null;
 function getPlanets() {
   document.getElementById("characters").innerHTML = "";
   document.getElementById("planetsList").innerHTML = "";
-  axios
-    .get(`https://swapi.dev/api/planets/?page=${numberEpisod}`)
-    .then((response) => {
-      planets = response.data.results;
-      sortPlanets();
+  axios.get(`https://swapi.dev/api/films/${numberEpisod}`).then((response) => {
+    const arrLinkPlanets = response.data.planets;
+    arrLinkPlanets.map((item) => {
+      return axios.get(item).then((response) => {
+        planets = response.data.name;
+        planetsList.insertAdjacentHTML(
+          "beforeend",
+          `<ul><li>${planets}</li></ul>`
+        );
+      });
     });
+  });
 }
-
-const planetsList = document.getElementById("planetsList");
-sortPlanets = () => {
-  planets.map((p, i) =>
-    planetsList.insertAdjacentHTML("beforeend", `<ul><li>${p.name}</li></ul>`)
-  );
-};
 
 const getWookiee = document.getElementById("wookiee");
 getWookiee.addEventListener("click", translateToWookiee);

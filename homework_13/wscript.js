@@ -12,27 +12,25 @@ function getCharactersData() {
   document.getElementById("characters").innerHTML = "";
   document.getElementById("planetsList").innerHTML = "";
 
-  axios.get(`https://swapi.dev/api/films/${numberEpisod}/`).then((respons) => {
-    arrLink = respons.data.characters;
-    console.log(arrLink);
-    arrLink.map((item) => {
-      return axios.get(item).then((response) => {
+  axios.get(`https://swapi.dev/api/films/${numberEpisod}/`).then((response) => {
+    const arrLinkCharacters = response.data.characters;
+    arrLinkCharacters.map((item) => {
+      return axios.get(item + "?format=wookiee").then((response) => {
         const id = parseInt(response.config.url.replace(/\D+/g, ""));
-
         const img = document.createElement("img");
         img.setAttribute("src", `./img/${id}.png`);
 
         const result = {
-          name: response.data.name,
-          birth_year: response.data.birth_year,
-          gender: response.data.gender,
+          name: response.data.whrascwo,
+          birth_year: response.data.rhahrcaoac_roworarc,
+          gender: response.data.rrwowhwaworc,
         };
 
         const charactersList = document.getElementById("characters");
 
         charactersList.insertAdjacentHTML(
           "beforeend",
-          `<div id="icon"><p>Name: ${result.name}<br><span>Year of birth: ${result.birth_year}</span><br><span>Gender: ${result.gender}</span></p></div>`
+          `<div id="icon"><p>Whrascwo: ${result.name}<br><span>Rhahrcaoac roworarc: ${result.birth_year}</span><br><span>Rrwowhwaworc: ${result.gender}</span></p></div>`
         );
         charactersList.append(img);
       });
@@ -43,26 +41,24 @@ function getCharactersData() {
 const getPlanetsList = document.getElementById("getPlanetsList");
 getPlanetsList.addEventListener("click", getPlanets);
 
+const planetsList = document.getElementById("planetsList");
 let planets = null;
 function getPlanets() {
   document.getElementById("characters").innerHTML = "";
   document.getElementById("planetsList").innerHTML = "";
-  axios
-    .get(`https://swapi.dev/api/planets/?page=${numberEpisod}`)
-    .then((response) => {
-      planets = response.data;
-      console.log(planets);
-      sortPlanets();
+  axios.get(`https://swapi.dev/api/films/${numberEpisod}`).then((response) => {
+    const arrLinkPlanets = response.data.planets;
+    arrLinkPlanets.map((item) => {
+      return axios.get(item + "?format=wookiee").then((response) => {
+        planets = response.data.whrascwo;
+        planetsList.insertAdjacentHTML(
+          "beforeend",
+          `<ul><li>${planets}</li></ul>`
+        );
+      });
     });
-  console.log(numberEpisod);
+  });
 }
-
-const planetsList = document.getElementById("planetsList");
-sortPlanets = () => {
-  planets.map((p, i) =>
-    planetsList.insertAdjacentHTML("beforeend", `<ul><li>${p.name}</li></ul>`)
-  );
-};
 
 const getEnglish = document.getElementById("wookiee");
 getEnglish.addEventListener("click", translateToWookiee);
