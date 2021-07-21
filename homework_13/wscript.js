@@ -1,7 +1,7 @@
 const getCharacters = document.getElementById("getCharacters");
 getCharacters.addEventListener("click", getCharactersData);
 
-let numberEpisod = 1;
+let numberEpisod = 2;
 const select = document.getElementById("selectEpisod");
 select.addEventListener("change", (e) => {
   numberEpisod = e.target.value;
@@ -14,6 +14,7 @@ function getCharactersData() {
 
   axios.get(`https://swapi.dev/api/films/${numberEpisod}/`).then((respons) => {
     arrLink = respons.data.characters;
+    console.log(arrLink);
     arrLink.map((item) => {
       return axios.get(item).then((response) => {
         const id = parseInt(response.config.url.replace(/\D+/g, ""));
@@ -49,9 +50,11 @@ function getPlanets() {
   axios
     .get(`https://swapi.dev/api/planets/?page=${numberEpisod}`)
     .then((response) => {
-      planets = response.data.results;
+      planets = response.data;
+      console.log(planets);
       sortPlanets();
     });
+  console.log(numberEpisod);
 }
 
 const planetsList = document.getElementById("planetsList");
@@ -61,9 +64,9 @@ sortPlanets = () => {
   );
 };
 
-const getWookiee = document.getElementById("wookiee");
-getWookiee.addEventListener("click", translateToWookiee);
+const getEnglish = document.getElementById("wookiee");
+getEnglish.addEventListener("click", translateToWookiee);
 
 function translateToWookiee() {
-  window.location.href = "windex.html";
+  window.location.href = "index.html";
 }

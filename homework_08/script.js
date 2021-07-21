@@ -69,9 +69,10 @@ console.log("Оцінки студента до оцінювання:", ostap.ge
 //Advanced
 
 class BudgetStudent extends Student {
-  constructor(university, course, fullName) {
-    super(university, course, fullName);
-    this.marks = [5, 4, 4, 5];
+  constructor(university, course, fullName, marks, dismissed) {
+    super(university, course, fullName, marks, dismissed);
+    this.marks = marks;
+    this.dismissed = dismissed;
     setInterval(() => this.getScholarship(), 30000);
   }
 
@@ -87,7 +88,9 @@ class BudgetStudent extends Student {
 const budgetStudent = new BudgetStudent(
   "Вищої Школи Психотерапії м.Одеса",
   "2",
-  "Andrii Tantsiura"
+  "Andrii Tantsiura",
+  [5, 4, 4, 5],
+  false
 );
 
 console.log(budgetStudent.getScholarship(1400));
