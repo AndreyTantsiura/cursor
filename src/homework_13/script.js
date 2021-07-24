@@ -1,0 +1,83 @@
+const getCharacters = document.getElementById("getCharacters");
+getCharacters.addEventListener("click", getCharactersData);
+
+let numberEpisod = 2;
+const select = document.getElementById("selectEpisod");
+select.addEventListener("change", (e) => {
+  document.getElementById("characters").innerHTML = "";
+  document.getElementById("planetsList").innerHTML = "";
+  numberEpisod = e.target.value;
+  return numberEpisod;
+});
+
+function getCharactersData() {
+  document.getElementById("characters").innerHTML = "";
+  document.getElementById("planetsList").innerHTML = "";
+
+  axios.get(`https://swapi.dev/api/films/${numberEpisod}/`).then((respons) => {
+    const arrLinkCharacters = respons.data.characters;
+    arrLinkCharacters.map((item) => {
+      return axios.get(item).then((response) => {
+        const id = parseInt(response.config.url.replace(/\D+/g, ""));
+
+        const img = document.createElement("img");
+        img.setAttribute("src", `./img/${id}.png`);
+
+        const result = {
+          name: response.data.name,
+          birth_year: response.data.birth_year,
+          gender: response.data.gender,
+        };
+
+        const charactersList = document.getElementById("characters");
+
+        charactersList.insertAdjacentHTML(
+          "beforeend",
+          `<div id="icon"><p>Name: ${result.name}<br><span>Year of birth: ${result.birth_year}</span><br><span>Gender: ${result.gender}</span></p></div>`
+        );
+        charactersList.append(img);
+      });
+    });
+  });
+}
+
+const getPlanetsList = document.getElementById("getPlanetsList");
+getPlanetsList.addEventListener("click", getPlanets);
+
+const planetsList = document.getElementById("planetsList");
+let planets = null;
+function getPlanets() {
+  document.getElementById("characters").innerHTML = "";
+  document.getElementById("planetsList").innerHTML = "";
+  axios.get(`https://swapi.dev/api/films/${numberEpisod}`).then((response) => {
+    const arrLinkPlanets = response.data.planets;
+    arrLinkPlanets.map((item) => {
+      return axios.get(item).then((response) => {
+        planets = response.data.name;
+        planetsList.insertAdjacentHTML(
+          "beforeend",
+          `<ul><li>${planets}</li></ul>`
+        );
+      });
+    });
+  });
+  const info = document.querySelector(".info");
+
+  const previousButton = document.createElement("button");
+  previousButton.setAttribute("class", "previousButton");
+  previousButton.innerHTML = "<< Previos";
+
+  const nextButton = document.createElement("button");
+  nextButton.setAttribute("class", "nextButton");
+  nextButton.innerHTML = "Next >>";
+
+  info.before(previousButton);
+  info.before(nextButton);
+}
+
+const getWookiee = document.getElementById("wookiee");
+getWookiee.addEventListener("click", translateToWookiee);
+
+function translateToWookiee() {
+  window.location.href = "windex.html";
+}
