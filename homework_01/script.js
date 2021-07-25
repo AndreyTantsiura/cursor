@@ -15,7 +15,7 @@ const apllePrice = 15.678;
 const pearsPrice = 123.965;
 const peachesPrice = 90.2345;
 
-const maxPrice = Math.max(apllePrice, pearsPrice, peachesPrice);
+export const maxPrice = Math.max(apllePrice, pearsPrice, peachesPrice);
 console.log("maxPrice", maxPrice);
 
 const minPrice = Math.min(apllePrice, pearsPrice, peachesPrice);

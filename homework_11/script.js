@@ -2,7 +2,7 @@ async function getRandomChinese(length) {
   let rowLength = "";
 
   for (let i = 0; i < length; i++) {
-    let promise = new Promise((resolve) => {
+    const promise = new Promise((resolve) => {
       setTimeout(() => {
         const sign = Date.now().toString().slice(-5);
         const row = String.fromCharCode(sign);
