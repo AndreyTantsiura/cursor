@@ -55,7 +55,7 @@ console.log("profit", profit);
 
 // Advanced
 
-document.writeln(`1. Максимальне число = ${maxPrice}; <br>
+document.body.innerHTML = `1. Максимальне число = ${maxPrice}; <br>
 2. Мінімальне число = ${minPrice}; <br>
 3. Вартість всіх товарів = ${productPrice}; <br>
 4. Сума цілих частин вартості товарів = ${sumPriceWithoutCoins}; <br>
@@ -65,4 +65,4 @@ document.writeln(`1. Максимальне число = ${maxPrice}; <br>
 8. Середнє значення цін = ${averagePrice}; <br>
 9. Випадкова знижка = ${discount}%; <br>
 10. Сума з випадковою знижкою = ${sumWithDiscount}; <br>
-11. Чистий прибуток = ${profit}.`);
+11. Чистий прибуток = ${profit}.`;

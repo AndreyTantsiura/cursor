@@ -1,10 +1,10 @@
-const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
+export const ukraine = { tax: 0.195, middleSalary: 1789, vacancies: 11476 };
 const latvia = { tax: 0.25, middleSalary: 1586, vacancies: 3921 };
 const litva = { tax: 0.15, middleSalary: 1509, vacancies: 1114 };
 
 // 1. Створіть функцію getMyTaxes.call(country, salary) -> number; – яка рахує скільки податків ви заплатите як IT-спеціаліст в якійсь з країн. Функція повинна викликатись через call та працювати з даними через this
 
-function getMyTaxes(mySalary, country) {
+export function getMyTaxes(mySalary, country) {
   const myTaxes = (mySalary * this.tax).toFixed(2);
   return `In ${country} I will pay: ${myTaxes}`;
 }

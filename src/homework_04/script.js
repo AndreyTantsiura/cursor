@@ -8,7 +8,7 @@ const marks = [4, 5, 5, 3, 4, 5];
 
 // #1 Розділіть студентів на пари(хлопець + дівчина) для работи над проєктом. У вас повинен вийти вкладений масив з парами студентів: [["Олександр", "Олена"], [..], [...]];
 
- function pairIntoTeams(students) {
+ export function pairIntoTeams(students) {
   const studentsTeams = [];
   const firstTeam = [students[0], students[2]];
   const fsecondTeam = [students[1], students[3]];
