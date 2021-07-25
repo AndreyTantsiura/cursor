@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>homework_13</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <select id="selectEpisod">
+      <option value="1">Films 1</option>
+      <option value="2" selected>Films 2</option>
+      <option value="3">Films 3</option>
+      <option value="4">Films 4</option>
+      <option value="5">Films 5</option>
+      <option value="6">Films 6</option>
+    </select>
+    <div class="buttons">
+      <button id="getCharacters">Information about characters</button>
+      <button id="getPlanetsList">List all planets</button>
+      <button id="wookiee">Wookiee language</button>
+    </div>
+    <div class="info">
+      <div id="characters"></div>
+      <div id="planetsList"></div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
