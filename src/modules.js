@@ -77,31 +77,48 @@ export function getMiddleTaxes(country) {
 
 //homework_08
 export class Student {
-	constructor(university, course, fullName, marks, dismissed) {
-	  this.university = university;
-	  this.course = course;
-	  this.fullName = fullName;
-	  this.marks = marks;
-	  this.dismissed = dismissed;
-	}
- 
-	getInfo() {
-	  if (this.dismissed) return null;
-	  return `Студент ${this.course}го курсу ${this.university}, ${this.fullName}`;
-	}
- }
- 
- export const ostap = new Student(
-	"Вищої Школи Психотерапії м.Одеса",
-	"1",
-	"Остап Родоманський Бендер",
-	[5, 4, 4, 5],
-	false
- );
- 
- //homework_09
- export const getRandomColor = () => {
-	const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-	return randomColor
- }
- 
+  constructor(university, course, fullName, marks, dismissed) {
+    this.university = university;
+    this.course = course;
+    this.fullName = fullName;
+    this.marks = marks;
+    this.dismissed = dismissed;
+  }
+
+  getInfo() {
+    if (this.dismissed) return null;
+    return `Студент ${this.course}го курсу ${this.university}, ${this.fullName}`;
+  }
+}
+
+export const ostap = new Student(
+  "Вищої Школи Психотерапії м.Одеса",
+  "1",
+  "Остап Родоманський Бендер",
+  [5, 4, 4, 5],
+  false
+);
+
+//homework_09
+export const getRandomColor = () => {
+  const randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  return randomColor;
+};
+
+//homework_11
+export async function getRandomChinese(length) {
+  let rowLength = "";
+
+  for (let i = 0; i < length; i++) {
+    const promise = new Promise((resolve) => {
+      setTimeout(() => {
+        const sign = Date.now().toString().slice(-5);
+        const row = String.fromCharCode(sign);
+        resolve(row);
+      }, 50 * i);
+    });
+    rowLength += await promise;
+  }
+
+  return rowLength;
+}
