@@ -7,6 +7,26 @@ export function getMaxPrice() {
   return maxPrice;
 }
 
+//homework_02
+export function getSumAllNumber() {
+  let numberN = 0;
+  let numberM = 0;
+  let sumAllNumber = 0;
+  do {
+    numberN = 10;
+  } while (!Number.isInteger(numberN) || isNaN(numberN) || numberN === "");
+  do {
+    numberM = 100;
+  } while (!Number.isInteger(numberM) || isNaN(numberM) || numberM === "");
+  const skipEvenNumber = true;
+  for (let i = numberN; i <= numberM; i++) {
+    if (!skipEvenNumber || i % 2) {
+      sumAllNumber += i;
+    }
+  }
+  return sumAllNumber;
+}
+
 //homework_03
 export function getMaxDigit(number) {
   if (!Number.isInteger(number)) {
@@ -122,3 +142,26 @@ export async function getRandomChinese(length) {
 
   return rowLength;
 }
+
+//homework_13
+export function getPlanets() {
+  axios.get(`https://swapi.dev/api/films/2/`).then((response) => {
+    const arrLinkPlanets = response.data.planets;
+    arrLinkPlanets.map((item) => {
+      return axios.get(item).then((response) => {
+        const planets = response.data.name;
+        console.log("HW#13.", planets);
+      });
+    });
+  });
+}
+
+//homework_14
+export function* createIdGenerator() {
+  let i = 0;
+  while (true) {
+    i++;
+    yield i;
+  }
+}
+export const idGenerator = createIdGenerator();

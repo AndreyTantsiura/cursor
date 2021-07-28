@@ -1,6 +1,7 @@
 import _ from "lodash";
 import {
   getMaxPrice,
+  getSumAllNumber,
   getMaxDigit,
   pairIntoTeams,
   getRandomArray,
@@ -11,16 +12,26 @@ import {
   ostap,
   getRandomColor,
   getRandomChinese,
+  getPlanets,
+  createIdGenerator,
+  idGenerator,
 } from "./modules.js";
+import "./styles/style.css";
 
-document.body.innerHTML = `
-HW#1. Максимальне число = ${getMaxPrice()};<br>
-HW#3. Функція №1: ${getMaxDigit(-1278)};<br>
-HW#4. Function 1: ${pairIntoTeams()};<br>
-HW#5. 1) array: ${getRandomArray(15, 1, 100)};<br>
-HW#6. List subjects: ${getSubjects()};<br>
-HW#7. ${getMiddleTaxes.call(ukraine, "ukraine")};<br>
-HW#8. Дані студента: ${ostap.getInfo(Student)};<br>
-HW#9. Random color: ${getRandomColor()};<br>
-HW#11. ${getRandomChinese(4).then(console.log)};<br>
-`;
+console.log("HW#1. Максимальне число =", getMaxPrice());
+console.log("HW#2. Cума чисел = ", getSumAllNumber());
+console.log("HW#3. Функція №1:", getMaxDigit(-1278));
+console.log("HW#4. Function 1:", pairIntoTeams());
+console.log("HW#5. 1) array:", getRandomArray(15, 1, 100));
+console.log("HW#6. List subjects:", getSubjects());
+console.log("HW#7.", getMiddleTaxes.call(ukraine, "ukraine"));
+console.log("HW#8. Дані студента:", ostap.getInfo(Student));
+console.log("HW#9. Random color:", getRandomColor());
+getRandomChinese(4).then((data) => {
+  console.log(`HW#11. ${data}`);
+});
+getPlanets();
+createIdGenerator();
+console.log("HW#14. idGenerator.next().value ->", idGenerator.next().value);
+console.log("HW#14. idGenerator.next().value ->", idGenerator.next().value);
+console.log("HW#14. idGenerator.next().value ->", idGenerator.next().value);

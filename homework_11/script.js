@@ -12,8 +12,8 @@ async function getRandomChinese(length) {
     rowLength += await promise;
   }
 
-  alert(rowLength);
+  document.body.innerHTML = rowLength;
 }
 
-const countSymbol = +prompt("Enter count symbols:", 4);
-getRandomChinese(countSymbol);
+// const countSymbol = +prompt("Enter count symbols:", 4);
+getRandomChinese(4);
