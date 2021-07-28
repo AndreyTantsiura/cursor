@@ -156,8 +156,7 @@ export function getPlanets() {
           "afterbegin",
           `<ul><li>${planets}</li></ul>`
         );
-        document.body.innerHTML = planetsList;
-        console.log(planetsList);
+        document.body.append(planetsList);
       });
     });
   });
