@@ -16,7 +16,7 @@ import {
   createIdGenerator,
   idGenerator,
 } from "./modules.js";
-import "./styles/style.css";
+import "../homework_13/style.css";
 
 console.log("HW#1. Максимальне число =", getMaxPrice());
 console.log("HW#2. Cума чисел = ", getSumAllNumber());

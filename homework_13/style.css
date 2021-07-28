@@ -45,7 +45,7 @@ li {
   padding: 0.25em 0.5em;
   outline: none;
   background: rgb(255, 212, 3)
-  linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
+    linear-gradient(rgb(255, 212, 3), rgb(248, 157, 23));
   border: 1px solid rgb(250, 172, 17);
   border-radius: 7px;
   opacity: 0.5;
@@ -106,5 +106,4 @@ button:active {
     inset 0 1px 2px rgba(0, 0, 0, 0.3), inset 0 0 0 60px rgba(255, 255, 0, 0.45);
 }
 .nextButton {
-  
 }

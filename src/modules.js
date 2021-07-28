@@ -145,12 +145,19 @@ export async function getRandomChinese(length) {
 
 //homework_13
 export function getPlanets() {
+  const planetsList = document.createElement("div");
+  planetsList.setAttribute("id", "planetsList");
   axios.get(`https://swapi.dev/api/films/2/`).then((response) => {
     const arrLinkPlanets = response.data.planets;
     arrLinkPlanets.map((item) => {
       return axios.get(item).then((response) => {
         const planets = response.data.name;
-        console.log("HW#13.", planets);
+        planetsList.insertAdjacentHTML(
+          "afterbegin",
+          `<ul><li>${planets}</li></ul>`
+        );
+        document.body.innerHTML = planetsList;
+        console.log(planetsList);
       });
     });
   });
