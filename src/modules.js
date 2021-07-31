@@ -153,7 +153,7 @@ export function getPlanets() {
       return axios.get(item).then((response) => {
         const planets = response.data.name;
         planetsList.insertAdjacentHTML(
-          "afterbegin",
+          "beforeend",
           `<ul><li>${planets}</li></ul>`
         );
         document.body.append(planetsList);
