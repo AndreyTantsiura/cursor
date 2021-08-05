@@ -26,21 +26,25 @@ function getCharactersData() {
     const arrLinkCharacters = respons.data.characters;
     arrLinkCharacters.map((item) => {
       return axios.get(item).then((response) => {
+        const { name, birth_year, gender } = response.data;
         const id = parseInt(response.config.url.replace(/\D+/g, ""));
         const img = document.createElement("img");
         img.setAttribute("src", `./img/${id}.png`);
 
-        const result = {
-          name: response.data.name,
-          birth_year: response.data.birth_year,
-          gender: response.data.gender,
-        };
+        const result = { name, birth_year, gender };
 
         const charactersList = document.getElementById("characters");
 
         charactersList.insertAdjacentHTML(
           "beforeend",
-          `<div id="icon"><p>Name: ${result.name}<br><span>Year of birth: ${result.birth_year}</span><br><span>Gender: ${result.gender}</span></p></div>`
+          `<div id="icon">
+          <p>
+            Name: ${result.name}<br />
+            <span> Year of birth: ${result.birth_year} </span>
+            <br />
+            <span> Gender: ${result.gender} </span>
+          </p>
+        </div>`
         );
         charactersList.append(img);
       });
